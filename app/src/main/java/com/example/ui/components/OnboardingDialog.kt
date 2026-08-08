@@ -203,9 +203,9 @@ fun OnboardingDialog(
                                 verticalArrangement = Arrangement.spacedBy(8.dp),
                                 modifier = Modifier.fillMaxWidth()
                             ) {
-                                OnboardingFeatureRow(icon = Icons.Default.LocationOn, title = "GPS Geofence", desc = "Arrive/Leave Home, Work, or Gym")
-                                OnboardingFeatureRow(icon = Icons.Default.Security, title = "Wi-Fi & Bluetooth", desc = "Connect to specific networks or car audio")
-                                OnboardingFeatureRow(icon = Icons.Default.BatteryChargingFull, title = "Battery & Power", desc = "Auto battery saver & charger state triggers")
+                                OnboardingFeatureRow(icon = Icons.Default.LocationOn, title = "Location (GPS)", desc = "Arrive or leave Home, Work, or Gym")
+                                OnboardingFeatureRow(icon = Icons.Default.Security, title = "Wi-Fi & Bluetooth", desc = "Connect to specific SSIDs or Bluetooth audio")
+                                OnboardingFeatureRow(icon = Icons.Default.BatteryChargingFull, title = "Battery & Power", desc = "Auto power-saving & charging state triggers")
                             }
                         }
 

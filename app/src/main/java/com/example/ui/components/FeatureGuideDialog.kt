@@ -92,33 +92,33 @@ fun FeatureGuideDialog(
             ) {
                 GuideCard(
                     icon = Icons.Default.AutoAwesome,
-                    title = "1. AI Natural Language Engine",
-                    desc = "Type commands like 'Mute phone when I arrive at office' into the AI Assistant dialog. SwAIft automatically parses triggers and action settings using Gemini AI or Local Fallback."
+                    title = "1. AI Engine",
+                    desc = "Create routines instantly using natural speech or prompt input."
                 )
                 GuideCard(
                     icon = Icons.Default.LocationOn,
-                    title = "2. Location & Geofencing",
-                    desc = "Automatically change sound profiles, brightness, or Wi-Fi state when entering or leaving Home, Work, or Gym locations."
+                    title = "2. Location Geofence",
+                    desc = "Automate phone settings upon entering or leaving Home, Work, or Gym."
                 )
                 GuideCard(
                     icon = Icons.Default.Wifi,
-                    title = "3. Wi-Fi & Bluetooth Triggers",
-                    desc = "Set actions to trigger when connecting or disconnecting from home Wi-Fi SSIDs or car Bluetooth audio."
+                    title = "3. Wi-Fi & Bluetooth",
+                    desc = "Trigger actions when connecting or disconnecting Wi-Fi or car Bluetooth."
                 )
                 GuideCard(
                     icon = Icons.Default.Schedule,
-                    title = "4. Time & Sleep Schedule",
-                    desc = "Configure nightly routines (e.g. 22:00 to 07:00) for automatic DND, Dark Mode, and volume adjustments."
+                    title = "4. Time Schedule",
+                    desc = "Automate quiet hours, dark mode, and volumes during set time windows."
                 )
                 GuideCard(
                     icon = Icons.Default.BatterySaver,
-                    title = "5. Battery Saver Optimization",
-                    desc = "Trigger battery-saving actions when power drops below a custom threshold, and enable Battery Saver Mode in Settings for reduced background polling."
+                    title = "5. Battery Saver",
+                    desc = "Protect battery life with automated power-saving rules when level drops."
                 )
                 GuideCard(
                     icon = Icons.Default.PhoneAndroid,
-                    title = "6. Environment Simulator Drawer",
-                    desc = "Tap the top-right tune icon to open the Live Simulator. Instantly test your routines without leaving your desk."
+                    title = "6. Live Simulator",
+                    desc = "Tap the top-right tune icon to simulate triggers instantly at your desk."
                 )
             }
         },

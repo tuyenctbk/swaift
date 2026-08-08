@@ -98,11 +98,11 @@ fun CreateRoutineDialog(
     var showTimePickerDialog by remember { mutableStateOf(false) }
 
     // Trigger details
-    var locationLabel by remember { mutableStateOf("Home") }
-    var wifiSsid by remember { mutableStateOf("Home-WiFi") }
-    var bluetoothDevice by remember { mutableStateOf("Car-Kit") }
+    var locationLabel by remember { mutableStateOf("") }
+    var wifiSsid by remember { mutableStateOf("") }
+    var bluetoothDevice by remember { mutableStateOf("") }
     var batteryThreshold by remember { mutableIntStateOf(20) }
-    var appName by remember { mutableStateOf("YouTube") }
+    var appName by remember { mutableStateOf("") }
     var activityType by remember { mutableStateOf("Walking") }
     var useAlarmManager by remember { mutableStateOf(false) }
 

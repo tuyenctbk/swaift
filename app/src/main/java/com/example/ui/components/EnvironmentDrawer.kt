@@ -87,7 +87,7 @@ fun EnvironmentDrawer(
                     )
                     Spacer(modifier = Modifier.height(2.dp))
                     Text(
-                        text = "Simulate real-world conditions to test your flows live",
+                        text = "Simulate triggers to test flows live",
                         style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                         maxLines = 1,
