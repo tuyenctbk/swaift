@@ -38,7 +38,7 @@ object AlarmScheduler {
         
         val pendingIntent = PendingIntent.getBroadcast(
             context,
-            flow.hashCode(),
+            flow.id.hashCode(),
             intent,
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
         )
@@ -71,7 +71,7 @@ object AlarmScheduler {
         val intent = Intent(context, AlarmReceiver::class.java)
         val pendingIntent = PendingIntent.getBroadcast(
             context,
-            flow.hashCode(),
+            flow.id.hashCode(),
             intent,
             PendingIntent.FLAG_NO_CREATE or PendingIntent.FLAG_IMMUTABLE
         )

@@ -48,7 +48,7 @@ class AlarmReceiver : BroadcastReceiver() {
                     AlarmScheduler.scheduleAlarm(context.applicationContext, flow)
                 }
             } catch (e: Exception) {
-                e.printStackTrace()
+                android.util.Log.e("AlarmReceiver", "Error receiving alarm trigger", e)
             } finally {
                 goAsync.finish()
             }

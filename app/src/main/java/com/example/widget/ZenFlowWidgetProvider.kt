@@ -59,7 +59,7 @@ class ZenFlowWidgetProvider : AppWidgetProvider() {
                         }
                         val pendingIntent1 = PendingIntent.getBroadcast(
                             context,
-                            topFlows[0].hashCode(),
+                            topFlows[0].id.hashCode(),
                             intent1,
                             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
                         )
@@ -80,7 +80,7 @@ class ZenFlowWidgetProvider : AppWidgetProvider() {
                             }
                             val pendingIntent2 = PendingIntent.getBroadcast(
                                 context,
-                                topFlows[1].hashCode(),
+                                topFlows[1].id.hashCode(),
                                 intent2,
                                 PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
                             )
@@ -105,7 +105,7 @@ class ZenFlowWidgetProvider : AppWidgetProvider() {
                             }
                             val pendingIntent3 = PendingIntent.getBroadcast(
                                 context,
-                                topFlows[2].hashCode(),
+                                topFlows[2].id.hashCode(),
                                 intent3,
                                 PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
                             )
@@ -118,7 +118,7 @@ class ZenFlowWidgetProvider : AppWidgetProvider() {
 
                     appWidgetManager.updateAppWidget(appWidgetId, views)
                 } catch (e: Exception) {
-                    e.printStackTrace()
+                    android.util.Log.e("ZenFlowWidgetProvider", "Error updating widget", e)
                 }
             }
         }
@@ -187,7 +187,7 @@ class ZenFlowWidgetProvider : AppWidgetProvider() {
                         }
                     }
                 } catch (e: Exception) {
-                    e.printStackTrace()
+                    android.util.Log.e("ZenFlowWidgetProvider", "Error toggling flow in widget", e)
                 }
             }
         }

@@ -64,7 +64,7 @@ class AutomationForegroundService : Service() {
 
                     var triggeredInLoop = 0
                     activeFlows.forEach { flow ->
-                        val isTimeMatched = flow.scheduledTime == currentTimeStr
+                        val isTimeMatched = flow.triggerType == TriggerType.SCHEDULE && flow.scheduledTime == currentTimeStr
                         val isAlreadyRunThisMinute = flow.lastRunTimeMillis?.let { lastRun ->
                             val lastRunMinute = SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault()).format(Date(lastRun))
                             val currentMinute = SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault()).format(Date(nowMs))
@@ -116,7 +116,7 @@ class AutomationForegroundService : Service() {
                         updateNotification("Triggered $triggeredInLoop routine(s) at $currentTimeStr")
                     }
                 } catch (e: Exception) {
-                    e.printStackTrace()
+                    android.util.Log.e("AutomationForegroundService", "Error in service loop", e)
                 }
 
                 val powerManager = applicationContext.getSystemService(Context.POWER_SERVICE) as? android.os.PowerManager
