@@ -1,0 +1,6 @@
+{
+  "name": "SwAIft",
+  "description": "Automating life, one seamless flow at a time. Simple, powerful device automation with pre-built routines, zero-logic Q&A setup, and local transparency logs.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

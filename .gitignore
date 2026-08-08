@@ -1,0 +1,54 @@
+# Built application files
+*.apk
+*.aab
+*.aar
+*.ap_
+*.dex
+
+# Files for the ART/Dalvik VM
+*.class
+
+# Java class files
+*.class
+
+# Generated files
+bin/
+gen/
+out/
+build/
+app/build/
+
+# Gradle files
+.gradle/
+.kotlin/
+build/
+app/build/
+
+# Local configuration file & secrets
+local.properties
+.env
+.env.local
+
+# Keystores & Signing Keys
+*.jks
+*.keystore
+*.p12
+*.pem
+*.key
+debug.keystore
+common_release_key.jks
+
+# Firebase & Google Services secrets
+# google-services.json
+
+# IDE / Editor files
+.idea/
+*.iml
+.navigation/
+captures/
+.externalNativeBuild/
+.cxx/
+
+# OS generated files
+.DS_Store
+Thumbs.db

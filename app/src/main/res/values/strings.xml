@@ -1,0 +1,134 @@
+<resources>
+    <string name="app_name">SwAIft</string>
+    <string name="activate">Activate</string>
+    <string name="pause">Pause</string>
+    <string name="start">Start</string>
+    <string name="done">Done</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+    <string name="delete">Delete</string>
+    <string name="edit">Edit</string>
+    <string name="create_routine">Create Routine</string>
+
+    <!-- Navigation & Tabs -->
+    <string name="nav_dashboard">Dashboard</string>
+    <string name="nav_my_flows">My Flows</string>
+    <string name="nav_discover">Discover</string>
+    <string name="nav_history">History</string>
+    <string name="nav_settings">Settings</string>
+
+    <!-- Environment Conditions -->
+    <string name="env_conditions_title">Environment Conditions</string>
+    <string name="env_gps_location">GPS Location Geofence</string>
+    <string name="env_wifi_ssid">Wi-Fi SSID Connection</string>
+    <string name="env_charger_plugged">Charger Plugged in</string>
+    <string name="env_open_app_context">Open App Context</string>
+    <string name="env_activity_motion">Activity Motion</string>
+    <string name="env_time_schedule">Time of Day Schedule</string>
+    <string name="status_none">None</string>
+    <string name="status_disconnected">Disconnected</string>
+    <string name="status_active">ACTIVE</string>
+    <string name="status_paused">PAUSED</string>
+
+    <!-- General Categories & Labels -->
+    <string name="category_all">All</string>
+    <string name="category_battery">Battery</string>
+    <string name="category_automation">Automation</string>
+    <string name="category_smart_home">Smart Home</string>
+    <string name="category_productivity">Productivity</string>
+    <string name="category_health">Health</string>
+    <string name="category_lifestyle">Lifestyle</string>
+    <string name="category_work">Work</string>
+    <string name="category_travel">Travel</string>
+    <string name="category_media">Media</string>
+
+    <!-- Smart Rate & Share prompts (used by SmartRatingDialog) -->
+    <string name="rate_title">Enjoying SwAIft?</string>
+    <string name="rate_description">If SwAIft helps automate your day, please rate us 5 stars on Play Store!</string>
+    <string name="rate_btn">Rate 5 Stars ⭐</string>
+    <string name="share_title">Share SwAIft with Friends</string>
+    <string name="share_description">Help others discover smart, private Android automation!</string>
+    <string name="share_btn">Share App 🚀</string>
+    <string name="maybe_later">Maybe Later</string>
+
+    <!-- Dashboard Screen -->
+    <string name="dashboard_title">Dashboard</string>
+    <string name="dashboard_executions_30d">Executions (30d)</string>
+    <string name="dashboard_success_rate">Success Rate</string>
+    <string name="dashboard_active_routines">Active Routines</string>
+    <string name="dashboard_avg_per_day">Avg/Day</string>
+    <string name="dashboard_ai_insights">AI Insights</string>
+    <string name="dashboard_analyzing">Analyzing your routines…</string>
+    <string name="dashboard_execution_trend">Execution Trend (30 Days)</string>
+    <string name="dashboard_recent_activity">Recent Activity</string>
+    <string name="dashboard_no_activity">No activity yet. Run a routine to see history here!</string>
+    <string name="dashboard_privacy_badge">100% Local Processing &amp; Privacy</string>
+    <string name="dashboard_privacy_subtitle">No telemetry, no tracking, completely free forever</string>
+
+    <!-- My Flows Screen -->
+    <string name="my_flows_title">My Routines</string>
+    <string name="my_flows_empty_title">No Routines Yet</string>
+    <string name="my_flows_empty_subtitle">Create your first automation routine or discover templates from the Discover tab.</string>
+    <string name="my_flows_search_hint">Search routines…</string>
+    <string name="my_flows_select_all">Select All</string>
+    <string name="my_flows_delete_selected">Delete Selected</string>
+    <string name="my_flows_pause_selected">Pause Selected</string>
+
+    <!-- Discover Screen -->
+    <string name="discover_onboarding_title">30-Second Automation Setup</string>
+    <string name="discover_onboarding_body">Pick a pre-configured template below → Toggle it \'On\' → Enjoy effortless device automation!</string>
+    <string name="discover_search_hint">Search routine gallery…</string>
+    <string name="discover_recent">Recent:</string>
+
+    <!-- History Screen -->
+    <string name="history_title">Execution History</string>
+    <string name="history_empty_title">No History Yet</string>
+    <string name="history_empty_subtitle">Run a routine to see its execution history here.</string>
+    <string name="history_filter_all">All</string>
+    <string name="history_filter_today">Today</string>
+    <string name="history_filter_7d">Last 7 Days</string>
+    <string name="history_filter_30d">Last 30 Days</string>
+    <string name="history_export_csv">Export CSV</string>
+    <string name="history_export_json">Export JSON</string>
+    <string name="history_clear">Clear History</string>
+    <string name="history_share">Share Log</string>
+    <string name="history_status_success">SUCCESS</string>
+    <string name="history_status_failed">FAILED</string>
+    <string name="history_status_manual">MANUAL</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_privacy_badge">100% Local Processing &amp; Privacy</string>
+    <string name="settings_privacy_subtitle">No telemetry, no tracking, completely free forever</string>
+    <string name="settings_appearance">Appearance</string>
+    <string name="settings_theme_system">System Default</string>
+    <string name="settings_theme_light">Light Mode</string>
+    <string name="settings_theme_dark">Dark Mode</string>
+    <string name="settings_performance">Performance</string>
+    <string name="settings_battery_saver">Battery Saver Mode</string>
+    <string name="settings_battery_saver_desc">Reduces background polling frequency to extend battery life.</string>
+    <string name="settings_auto_prune">Auto-Prune Old Logs</string>
+    <string name="settings_auto_prune_desc">Automatically delete history logs older than 90 days.</string>
+    <string name="settings_smart_suggestions">Smart Suggestions</string>
+    <string name="settings_smart_suggestions_desc">Intelligently prompt to rate or share the app based on usage patterns.</string>
+    <string name="settings_permissions">Required Permissions</string>
+    <string name="settings_permission_granted">Granted ✓</string>
+    <string name="settings_permission_grant">Grant</string>
+    <string name="settings_byok_title">Gemini AI — Bring Your Own Key</string>
+    <string name="settings_byok_hint">Enter your Google AI Gemini API key</string>
+    <string name="settings_byok_save">Save Key</string>
+    <string name="settings_byok_clear">Clear</string>
+    <string name="settings_backup_title">Data Backup &amp; Restore</string>
+    <string name="settings_export_backup">Export Backup</string>
+    <string name="settings_import_backup">Import Backup</string>
+    <string name="settings_version">Version</string>
+
+    <!-- Common -->
+    <string name="content_desc_close">Close</string>
+    <string name="content_desc_search">Search</string>
+    <string name="content_desc_clear">Clear</string>
+    <string name="content_desc_run">Run now</string>
+    <string name="content_desc_toggle">Toggle</string>
+    <string name="loading">Loading…</string>
+    <string name="no_results">No results found</string>
+</resources>
+
