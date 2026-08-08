@@ -86,6 +86,14 @@ class ZenFlowViewModel(application: Application) : AndroidViewModel(application)
         showToast(if (enabled) "Smart Suggestions Enabled" else "Smart Suggestions Disabled")
     }
 
+    private val _hasCompletedOnboarding = MutableStateFlow(prefs.getBoolean("has_completed_onboarding", false))
+    val hasCompletedOnboarding = _hasCompletedOnboarding.asStateFlow()
+
+    fun setOnboardingCompleted(completed: Boolean) {
+        _hasCompletedOnboarding.value = completed
+        prefs.edit().putBoolean("has_completed_onboarding", completed).apply()
+    }
+
     init {
         watchdog.start()
         pruneOldLogsNow()

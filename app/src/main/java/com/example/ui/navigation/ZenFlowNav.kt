@@ -42,6 +42,8 @@ import com.example.data.JsonUtils
 import com.example.ui.components.AiRoutineDialog
 import com.example.ui.components.CreateRoutineDialog
 import com.example.ui.components.EnvironmentDrawer
+import com.example.ui.components.FeatureGuideDialog
+import com.example.ui.components.OnboardingDialog
 import com.example.ui.components.QuickToast
 import com.example.ui.screens.DiscoverScreen
 import com.example.ui.screens.HistoryScreen
@@ -74,6 +76,7 @@ fun ZenFlowNav(
     var selectedTab by remember { mutableStateOf(ZenFlowTab.MY_FLOWS) }
     var isEditingFlow by remember { mutableStateOf(false) }
     var editingFlowTarget by remember { mutableStateOf<FlowEntity?>(null) }
+    var isGuideDialogOpen by remember { mutableStateOf(false) }
 
     val userFlows by viewModel.filteredUserFlows.collectAsStateWithLifecycle()
     val templates by viewModel.filteredTemplates.collectAsStateWithLifecycle()
@@ -90,6 +93,9 @@ fun ZenFlowNav(
     val toastMessage by viewModel.toastMessage.collectAsStateWithLifecycle()
     val isSimulatingDrawerOpen by viewModel.isSimulatingDrawerOpen.collectAsStateWithLifecycle()
     val smartSuggestionsEnabled by viewModel.smartSuggestionsEnabled.collectAsStateWithLifecycle()
+    val hasCompletedOnboarding by viewModel.hasCompletedOnboarding.collectAsStateWithLifecycle()
+
+    var isOnboardingOpen by remember(hasCompletedOnboarding) { mutableStateOf(!hasCompletedOnboarding) }
 
     val undoEvent by viewModel.undoSnackbarEvent.collectAsStateWithLifecycle()
     val snackbarHostState = remember { androidx.compose.material3.SnackbarHostState() }
@@ -152,11 +158,21 @@ fun ZenFlowNav(
                         )
                     },
                     actions = {
-                        IconButton(
-                            onClick = { viewModel.toggleSimulatingDrawer() },
-                            modifier = Modifier.testTag("top_simulator_btn")
-                        ) {
-                            Icon(imageVector = Icons.Default.Tune, contentDescription = "Simulate Environment", tint = MaterialTheme.colorScheme.primary)
+                        Row {
+                            IconButton(onClick = { isGuideDialogOpen = true }) {
+                                Icon(
+                                    imageVector = Icons.Default.HelpOutline,
+                                    contentDescription = "Feature Guidelines",
+                                    tint = MaterialTheme.colorScheme.primary
+                                )
+                            }
+                            IconButton(onClick = { viewModel.toggleSimulatingDrawer() }) {
+                                Icon(
+                                    imageVector = Icons.Default.Tune,
+                                    contentDescription = "Simulate Environment",
+                                    tint = if (isSimulatingDrawerOpen) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurfaceVariant
+                                )
+                            }
                         }
                     },
                     colors = TopAppBarDefaults.topAppBarColors(
@@ -292,7 +308,9 @@ fun ZenFlowNav(
                             apiErrorStatus = apiErrorStatus,
                             onClearApiError = { aiViewModel.clearApiErrorStatus() },
                             smartSuggestionsEnabled = smartSuggestionsEnabled,
-                            onSetSmartSuggestions = { viewModel.setSmartSuggestionsEnabled(it) }
+                            onSetSmartSuggestions = { viewModel.setSmartSuggestionsEnabled(it) },
+                            onReplayOnboarding = { isOnboardingOpen = true },
+                            onOpenFeatureGuide = { isGuideDialogOpen = true }
                         )
                     }
                 }
@@ -367,6 +385,25 @@ fun ZenFlowNav(
                 )
                 viewModel.showToast("✓ Saved AI Routine '${generatedFlow.title}'")
             }
+        )
+    }
+
+    if (isOnboardingOpen) {
+        OnboardingDialog(
+            onDismiss = {
+                isOnboardingOpen = false
+                viewModel.setOnboardingCompleted(true)
+            },
+            onComplete = {
+                isOnboardingOpen = false
+                viewModel.setOnboardingCompleted(true)
+            }
+        )
+    }
+
+    if (isGuideDialogOpen) {
+        FeatureGuideDialog(
+            onDismiss = { isGuideDialogOpen = false }
         )
     }
     val context = androidx.compose.ui.platform.LocalContext.current

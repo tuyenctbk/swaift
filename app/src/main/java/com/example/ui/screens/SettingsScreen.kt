@@ -76,6 +76,8 @@ fun SettingsScreen(
     onClearApiError: () -> Unit = {},
     smartSuggestionsEnabled: Boolean = true,
     onSetSmartSuggestions: (Boolean) -> Unit = {},
+    onReplayOnboarding: () -> Unit = {},
+    onOpenFeatureGuide: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {
     var showBackupDialog by remember { mutableStateOf(false) }
@@ -380,6 +382,47 @@ fun SettingsScreen(
                             onCheckedChange = { onSetSmartSuggestions(it) },
                             modifier = Modifier.testTag("smart_suggestions_switch")
                         )
+                    }
+                }
+            }
+        }
+
+        // Help & Onboarding Section
+        item {
+            Spacer(modifier = Modifier.height(20.dp))
+            Text(
+                text = "Help & Onboarding",
+                style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold),
+                modifier = Modifier.padding(horizontal = 20.dp)
+            )
+            Spacer(modifier = Modifier.height(8.dp))
+
+            Card(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 16.dp),
+                shape = RoundedCornerShape(20.dp),
+                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.4f))
+            ) {
+                Column(modifier = Modifier.padding(16.dp)) {
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.spacedBy(12.dp)
+                    ) {
+                        FilledTonalButton(
+                            onClick = onOpenFeatureGuide,
+                            shape = RoundedCornerShape(12.dp),
+                            modifier = Modifier.weight(1f)
+                        ) {
+                            Text("Feature Guidelines", style = MaterialTheme.typography.labelSmall)
+                        }
+                        OutlinedButton(
+                            onClick = onReplayOnboarding,
+                            shape = RoundedCornerShape(12.dp),
+                            modifier = Modifier.weight(1f)
+                        ) {
+                            Text("Replay Tour", style = MaterialTheme.typography.labelSmall)
+                        }
                     }
                 }
             }
