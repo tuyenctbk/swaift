@@ -62,7 +62,7 @@
     <string name="my_flows_delete_selected">Delete Selected</string>
     <string name="my_flows_pause_selected">Pause Selected</string>
     <string name="discover_onboarding_title">30-Second Automation Setup</string>
-    <string name="discover_onboarding_body">Pick a pre-configured template below → Toggle it \\'On\\' → Enjoy effortless device automation!</string>
+    <string name="discover_onboarding_body">Pick a pre-configured template below → Toggle it \'On\' → Enjoy effortless device automation!</string>
     <string name="discover_search_hint">Search routine gallery…</string>
     <string name="discover_recent">Recent:</string>
     <string name="history_title">Execution History</string>
@@ -110,7 +110,7 @@
     <string name="onboarding_how_desc">SwAIft triggers rules automatically when environment conditions match:</string>
     <string name="onboarding_perm_title">Permissions Setup</string>
     <string name="onboarding_perm_desc">Grant required permissions for seamless background automation:</string>
-    <string name="onboarding_ready_title">You\\'re All Set!</string>
+    <string name="onboarding_ready_title">You\'re All Set!</string>
     <string name="onboarding_ready_desc">Explore pre-built routines in Discover or ask the AI engine to generate custom automations tailored to your day.</string>
     <string name="onboarding_btn_get_started">Get Started 🚀</string>
     <string name="onboarding_btn_continue">Continue</string>
