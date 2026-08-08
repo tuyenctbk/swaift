@@ -51,10 +51,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
+import com.example.R
 
 @Composable
 fun OnboardingDialog(
@@ -131,13 +133,13 @@ fun OnboardingDialog(
                             }
                             Spacer(modifier = Modifier.height(16.dp))
                             Text(
-                                text = "Welcome to SwAIft",
+                                text = stringResource(R.string.onboarding_welcome_title),
                                 style = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.Bold),
                                 textAlign = TextAlign.Center
                             )
                             Spacer(modifier = Modifier.height(8.dp))
                             Text(
-                                text = "Your intelligent, privacy-first Android automation companion. Streamline daily tasks based on location, Wi-Fi, battery, and AI context.",
+                                text = stringResource(R.string.onboarding_welcome_desc),
                                 style = MaterialTheme.typography.bodyMedium,
                                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                                 textAlign = TextAlign.Center
@@ -159,7 +161,7 @@ fun OnboardingDialog(
                                     )
                                     Spacer(modifier = Modifier.width(8.dp))
                                     Text(
-                                        text = "100% On-Device & Private. Zero cloud telemetry.",
+                                        text = stringResource(R.string.onboarding_privacy_note),
                                         style = MaterialTheme.typography.labelSmall,
                                         fontWeight = FontWeight.SemiBold
                                     )
@@ -185,13 +187,13 @@ fun OnboardingDialog(
                             }
                             Spacer(modifier = Modifier.height(16.dp))
                             Text(
-                                text = "How Automations Work",
+                                text = stringResource(R.string.onboarding_how_title),
                                 style = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.Bold),
                                 textAlign = TextAlign.Center
                             )
                             Spacer(modifier = Modifier.height(8.dp))
                             Text(
-                                text = "SwAIft triggers rules automatically when environment conditions match:",
+                                text = stringResource(R.string.onboarding_how_desc),
                                 style = MaterialTheme.typography.bodyMedium,
                                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                                 textAlign = TextAlign.Center
@@ -225,13 +227,13 @@ fun OnboardingDialog(
                             }
                             Spacer(modifier = Modifier.height(16.dp))
                             Text(
-                                text = "Permissions Setup",
+                                text = stringResource(R.string.onboarding_perm_title),
                                 style = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.Bold),
                                 textAlign = TextAlign.Center
                             )
                             Spacer(modifier = Modifier.height(8.dp))
                             Text(
-                                text = "Grant required permissions for seamless background automation:",
+                                text = stringResource(R.string.onboarding_perm_desc),
                                 style = MaterialTheme.typography.bodyMedium,
                                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                                 textAlign = TextAlign.Center
@@ -281,13 +283,13 @@ fun OnboardingDialog(
                             }
                             Spacer(modifier = Modifier.height(16.dp))
                             Text(
-                                text = "You're All Set!",
+                                text = stringResource(R.string.onboarding_ready_title),
                                 style = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.Bold),
                                 textAlign = TextAlign.Center
                             )
                             Spacer(modifier = Modifier.height(8.dp))
                             Text(
-                                text = "Explore pre-built routines in Discover or ask the AI engine to generate custom automations tailored to your day.",
+                                text = stringResource(R.string.onboarding_ready_desc),
                                 style = MaterialTheme.typography.bodyMedium,
                                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                                 textAlign = TextAlign.Center
@@ -311,7 +313,7 @@ fun OnboardingDialog(
                     .fillMaxWidth()
                     .testTag("onboarding_next_btn")
             ) {
-                Text(if (currentStep == totalSteps - 1) "Get Started 🚀" else "Continue")
+                Text(if (currentStep == totalSteps - 1) stringResource(R.string.onboarding_btn_get_started) else stringResource(R.string.onboarding_btn_continue))
                 if (currentStep < totalSteps - 1) {
                     Spacer(modifier = Modifier.width(4.dp))
                     Icon(Icons.Default.ChevronRight, contentDescription = null, modifier = Modifier.size(18.dp))
@@ -321,11 +323,11 @@ fun OnboardingDialog(
         dismissButton = {
             if (currentStep > 0) {
                 TextButton(onClick = { currentStep-- }) {
-                    Text("Back")
+                    Text(stringResource(R.string.onboarding_btn_back))
                 }
             } else {
                 TextButton(onClick = onDismiss) {
-                    Text("Skip")
+                    Text(stringResource(R.string.onboarding_btn_skip))
                 }
             }
         }
