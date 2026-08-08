@@ -26,7 +26,11 @@
             android:name=".service.AutomationForegroundService"
             android:exported="false"
             android:foregroundServiceType="specialUse"
-            tools:targetApi="34" />
+            tools:targetApi="34">
+            <property
+                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="Real-time smartphone automation engine evaluating environment, Wi-Fi, battery, and location triggers in the background." />
+        </service>
         <receiver
             android:name=".service.AlarmReceiver"
             android:enabled="true"
