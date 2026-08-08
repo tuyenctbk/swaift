@@ -149,5 +149,7 @@
     <string name="content_desc_toggle">Toggle</string>
     <string name="status_active_monitoring">Status: Active &amp; Monitoring</string>
     <string name="status_disabled">Status: Disabled</string>
+    <string name="loading">Loading…</string>
+    <string name="no_results">No results found</string>
 </resources>
 
