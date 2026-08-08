@@ -134,7 +134,7 @@ class ZenFlowViewModel(application: Application) : AndroidViewModel(application)
         }
     }
 
-    private val _recentSearches = MutableStateFlow(listOf("Morning", "WiFi", "Focus", "Battery"))
+    private val _recentSearches = MutableStateFlow(emptyList<String>())
     val recentSearches = _recentSearches.asStateFlow()
 
     fun setThemeMode(mode: String) {

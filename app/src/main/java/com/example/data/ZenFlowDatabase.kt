@@ -49,29 +49,6 @@ abstract class ZenFlowDatabase : RoomDatabase() {
                     if (flowDao.getUserFlowCount() == 0) {
                         val flows = DefaultTemplates.getPrepopulatedFlows()
                         flowDao.insertFlows(flows)
-                        
-                        val historyDao = database.historyLogDao()
-                        val now = System.currentTimeMillis()
-                        val dayMs = 86_400_000L
-
-                        // Seed historical log entries across the last 30 days for rich dashboard analytics
-                        for (i in 0..28 step 2) {
-                            val timeOffset = now - (i * dayMs) - ((i * 137000L) % 3600000L)
-                            val flowSample = flows[i % flows.size]
-                            val isSuccess = i % 5 != 0
-                            historyDao.insertLog(
-                                HistoryLogEntity(
-                                    flowId = flowSample.id,
-                                    flowTitle = flowSample.title,
-                                    iconName = flowSample.iconName,
-                                    colorHex = flowSample.colorHex,
-                                    timestampMillis = timeOffset,
-                                    status = if (isSuccess) "SUCCESS" else "FAILED",
-                                    triggerReason = "Scheduled automation triggered at ${flowSample.scheduledTime}",
-                                    actionsExecuted = if (isSuccess) "Executed sound profile & volume adjust" else "Device setting restricted"
-                                )
-                            )
-                        }
                     }
                 }
             }

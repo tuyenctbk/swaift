@@ -394,7 +394,7 @@ fun HistoryItemCard(
 
             // Trigger Reason
             Text(
-                text = "WHY: ${log.triggerReason}",
+                text = "Trigger: ${log.triggerReason}",
                 style = MaterialTheme.typography.bodySmall.copy(fontWeight = FontWeight.SemiBold),
                 color = MaterialTheme.colorScheme.primary
             )
