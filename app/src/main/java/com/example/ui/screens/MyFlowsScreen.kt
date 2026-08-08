@@ -618,14 +618,16 @@ fun HeroStatusBanner(
                         Spacer(modifier = Modifier.width(12.dp))
                         Column {
                             Text(
-                                text = "SwAIft Engine Active",
+                                text = "SwAIft Active",
                                 style = MaterialTheme.typography.titleSmall.copy(fontWeight = FontWeight.Bold),
-                                color = MaterialTheme.colorScheme.onPrimaryContainer
+                                color = MaterialTheme.colorScheme.onPrimaryContainer,
+                                maxLines = 1
                             )
                             Text(
-                                text = "$activeCount of $totalCount routines monitoring",
+                                text = "$activeCount/$totalCount routines active",
                                 style = MaterialTheme.typography.bodySmall,
-                                color = MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.8f)
+                                color = MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.8f),
+                                maxLines = 1
                             )
                         }
                     }
@@ -645,13 +647,14 @@ fun HeroStatusBanner(
                 Spacer(modifier = Modifier.height(14.dp))
 
                 // Simulated context live pill
+                val displayWifi = if (environment.wifiSsid.length > 12) environment.wifiSsid.take(10) + "…" else environment.wifiSsid
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceBetween,
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Text(
-                        text = "📍 ${environment.locationLabel} • 📶 ${environment.wifiSsid} • 🔋 ${environment.batteryPercent}%",
+                        text = "📍 ${environment.locationLabel} • 📶 $displayWifi • 🔋 ${environment.batteryPercent}%",
                         style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.Medium),
                         color = MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.9f),
                         modifier = Modifier

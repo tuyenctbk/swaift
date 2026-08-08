@@ -109,11 +109,13 @@ fun DiscoverScreen(
                             style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold),
                             color = MaterialTheme.colorScheme.onTertiaryContainer
                         )
-                        Spacer(modifier = Modifier.height(4.dp))
+                        Spacer(modifier = Modifier.height(2.dp))
                         Text(
-                            text = "Pick a pre-configured template below → Toggle it 'On' → Enjoy effortless device automation!",
+                            text = "Pick a pre-configured template below and toggle on.",
                             style = MaterialTheme.typography.bodySmall,
-                            color = MaterialTheme.colorScheme.onTertiaryContainer.copy(alpha = 0.85f)
+                            color = MaterialTheme.colorScheme.onTertiaryContainer.copy(alpha = 0.85f),
+                            maxLines = 2,
+                            overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis
                         )
                     }
                 }
