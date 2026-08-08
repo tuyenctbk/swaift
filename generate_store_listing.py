@@ -1,8 +1,8 @@
 import csv
 
-# Store listing template data for SwAIft across supported languages
+# Store listing template data for SwAIft across all Google Play supported languages
 listings = [
-    # English (US)
+    # 1. English (US)
     ("en-US", "SwAIft: Smart Automation", "Automate daily phone tasks, Wi-Fi, location geofence & battery routines.",
 """SwAIft is your intelligent, privacy-first Android automation app designed to streamline your daily routines based on environment conditions, location, Wi-Fi networks, and device status.
 
@@ -15,7 +15,20 @@ Key Features:
 
 Optimize your daily smartphone experience with SwAIft!"""),
 
-    # Spanish
+    # 2. English (UK)
+    ("en-GB", "SwAIft: Smart Automation", "Automate daily phone tasks, Wi-Fi, location geofence & battery routines.",
+"""SwAIft is your intelligent, privacy-first Android automation app designed to streamline your daily routines based on environment conditions, location, Wi-Fi networks, and device status.
+
+Key Features:
+- Intelligent Automation Routines: Trigger actions based on GPS location, Wi-Fi SSID, battery levels, app open context, and motion activity.
+- Environment Simulator: Live test your custom flows with a built-in environment drawer before activating them.
+- Pre-built Flow Templates: Discover popular automation flows for productivity, smart home, battery saving, and daily health routines.
+- Complete Privacy: All routines and rules are processed locally on your device. No registration or cloud login required.
+- Modern & Sleek Interface: Designed with Google Material 3 guidelines featuring smooth animations and dark mode support.
+
+Optimize your daily smartphone experience with SwAIft!"""),
+
+    # 3. Spanish (Spain)
     ("es-ES", "SwAIft: Automatización", "Automatiza tareas diarias, Wi-Fi, ubicación GPS y ahorro de batería.",
 """SwAIft es tu aplicación inteligente de automatización para Android, diseñada para optimizar tus rutinas diarias según tu entorno, ubicación y estado del dispositivo.
 
@@ -27,7 +40,19 @@ Características principales:
 
 ¡Optimiza tu día a día con SwAIft!"""),
 
-    # French
+    # 4. Spanish (Latin America)
+    ("es-419", "SwAIft: Automatización", "Automatiza tareas diarias, Wi-Fi, ubicación GPS y ahorro de batería.",
+"""SwAIft es tu aplicación inteligente de automatización para Android, diseñada para optimizar tus rutinas diarias según tu entorno, ubicación y estado del dispositivo.
+
+Características principales:
+- Automatización Inteligente: Activa acciones según ubicación GPS, redes Wi-Fi, nivel de batería y aplicaciones abiertas.
+- Simulador de Entorno: Prueba tus rutinas en vivo antes de activarlas.
+- Plantillas Listas: Descubre flujos para productividad, hogar inteligente y ahorro de batería.
+- Privacidad Total: Todos los datos y reglas se procesan 100% de forma local en tu dispositivo.
+
+¡Optimiza tu día a día con SwAIft!"""),
+
+    # 5. French (France)
     ("fr-FR", "SwAIft: Automatisation", "Automatisez vos tâches quotidiennes, Wi-Fi, GPS et gestion de batterie.",
 """SwAIft est votre application d'automatisation Android intelligente, conçue pour simplifier vos routines quotidiennes selon votre environnement et votre géolocalisation.
 
@@ -39,7 +64,7 @@ Fonctionnalités clés:
 
 Simplifiez votre smartphone avec SwAIft dès aujourd'hui!"""),
 
-    # German
+    # 6. German
     ("de-DE", "SwAIft: Automationen", "Automatisiere WLAN, GPS-Standort, Akku & tägliche Aufgaben auf dem Handy.",
 """SwAIft ist Deine intelligente Android-Automations-App, die Deine täglichen Abläufe basierend auf Standort, WLAN und Gerätestatus optimiert.
 
@@ -51,55 +76,7 @@ Hauptfunktionen:
 
 Optimiere Dein Smartphone mit SwAIft!"""),
 
-    # Japanese
-    ("ja-JP", "SwAIft: スマホ自動化", "位置情報、Wi-Fi、バッテリーに応じたスマホタスク自動化アプリ。",
-"""SwAIftは、位置情報、Wi-Fi接続、バッテリー残量などの環境条件に基づいて、日常のスマホ操作を自動化するスマートなアプリです。
-
-主な機能：
-- スマート自動化ルーティン：GPS位置、Wi-Fiネットワーク、バッテリー状態に基づく自動アクション。
-- 環境シミュレーター：ルーティンを有効化する前にライブテスト可能。
-- 豊富で便利なテンプレート：生産性向上、省電力、スマートホーム用フローを多数収録。
-- 完全なプライバシー保護：すべての設定やデータはデバイス上にローカル保存されます。
-
-SwAIftでスマホライフをよりスマートに！"""),
-
-    # Chinese Simplified
-    ("zh-CN", "SwAIft: 智能自动化流程", "根据位置、Wi-Fi、电池状态自动执行日常手机任务与设程。",
-"""SwAIft 是一款智能且注重隐私的 Android 自动化应用，旨在根据环境条件、地理位置、Wi-Fi 网络及设备状态简化您的日常手机操作。
-
-核心功能：
-- 智能自动化流程：根据 GPS 位置、Wi-Fi 连接、电池电量及应用打开状态触发相应任务。
-- 环境模拟器：在激活自动化流程前，可在内置模拟器中实时测试效果。
-- 丰富精选模板：涵盖工作效率、省电模式及智能家居等多种常用工作流。
-- 100% 隐私保护：所有规则和数据均在本地处理，无需注册账号。
-
-立即使用 SwAIft，提升您的智能手机使用体验！"""),
-
-    # Chinese Traditional
-    ("zh-TW", "SwAIft: 智慧自動化流程", "根據位置、Wi-Fi、電池狀態自動執行日常手機任務與設定。",
-"""SwAIft 是一款智慧且注重隱私的 Android 自動化應用程式，旨在根據環境條件、地理位置、Wi-Fi 網路及設備狀態簡化您的日常手機操作。
-
-核心功能：
-- 智慧自動化流程：根據 GPS 位置、Wi-Fi 連線、電池電量及應用程式開啟狀態觸發相應任務。
-- 環境模擬器：在啟用自動化流程前，可在內建模擬器中即時測試效果。
-- 豐富精緻範本：涵蓋工作效率、省電模式及智慧家居等多種常用工作流。
-- 100% 隱私保護：所有規則和資料均在本地處理，無需註冊帳號。
-
-立即使用 SwAIft，提升您的智慧型手機使用體驗！"""),
-
-    # Korean
-    ("ko-KR", "SwAIft: 스마트 자동화", "위치, Wi-Fi, 배터리 상태에 맞춰 일상 스마트폰 작업을 자동화하세요.",
-"""SwAIft는 위치, Wi-Fi 네트워크, 배터리 잔량 등 주변 환경 조건에 따라 일상 스마트폰 작업을 자동으로 실행해 주는 스마트한 Android 자동화 앱입니다.
-
-주요 기능:
-- 스마트 자동화 루틴: GPS 위치, Wi-Fi, 배터리 및 앱 실행 상태에 따른 자동 액션.
-- 환경 시뮬레이터: 루틴 활성화 전 가상 환경에서 실시간 테스트 지원.
-- 유용한 템플릿: 생산성, 배터리 절약, 스마트홈 관련 완성형 플로우 제공.
-- 철저한 개인정보 보호: 모든 데이터와 규칙이 사용자 기기 내에만 로컬로 저장됩니다.
-
-SwAIft와 함께 더욱 편리한 스마트폰 라이프를 경험해보세요!"""),
-
-    # Italian
+    # 7. Italian
     ("it-IT", "SwAIft: Automazione", "Automatizza attività quotidiane, Wi-Fi, GPS e risparmio batteria.",
 """SwAIft è la tua applicazione intelligente per l'automazione Android, progettata per semplificare la vita quotidiana in base alla posizione GPS e allo stato del dispositivo.
 
@@ -111,7 +88,7 @@ Caratteristiche principali:
 
 Semplifica la tua routine con SwAIft!"""),
 
-    # Portuguese (Brazil)
+    # 8. Portuguese (Brazil)
     ("pt-BR", "SwAIft: Automação Smart", "Automatize tarefas diárias, Wi-Fi, localização GPS e economia de bateria.",
 """SwAIft é o seu aplicativo inteligente de automação para Android, projetado para simplificar suas rotinas diárias com base no ambiente, localização e status do dispositivo.
 
@@ -123,7 +100,7 @@ Recursos Principais:
 
 Otimize seu smartphone com o SwAIft hoje mesmo!"""),
 
-    # Russian
+    # 9. Russian
     ("ru-RU", "SwAIft: Автоматизация", "Автоматизация задач, Wi-Fi, GPS и экономии батареи на Android.",
 """SwAIft — это умное приложение для автоматизации Android, созданное для оптимизации ваших ежедневных задач на основе местоположения, сетей Wi-Fi и состояния устройства.
 
@@ -135,8 +112,56 @@ Otimize seu smartphone com o SwAIft hoje mesmo!"""),
 
 Сделайте ваш смартфон умнее вместе с SwAIft!"""),
 
-    # Vietnamese
-    ("vi-VN", "SwAIft: Tự động hóa", "Tự động hóa tác vụ hàng ngày, Wi-Fi, vị trí GPS & pin trên điện thoại.",
+    # 10. Japanese
+    ("ja-JP", "SwAIft: スマホ自動化", "位置情報、Wi-Fi、バッテリーに応じたスマホタスク自動化アプリ。",
+"""SwAIftは、位置情報、Wi-Fi接続、バッテリー残量などの環境条件に基づいて、日常のスマホ操作を自動化するスマートなアプリです。
+
+主な機能：
+- スマート自動化ルーティン：GPS位置、Wi-Fiネットワーク、バッテリー状態に基づく自動アクション。
+- 環境シミュレーター：ルーティンを有効化する前にライブテスト可能。
+- 豊富で便利なテンプレート：生産性向上、省電力、スマートホーム用フローを多数収録。
+- 完全なプライバシー保護：すべての設定やデータはデバイス上にローカル保存されます。
+
+SwAIftでスマホライフをよりスマートに！"""),
+
+    # 11. Chinese (Simplified)
+    ("zh-CN", "SwAIft: 智能自动化流程", "根据位置、Wi-Fi、电池状态自动执行日常手机任务与设置。",
+"""SwAIft 是一款智能且注重隐私的 Android 自动化应用，旨在根据环境条件、地理位置、Wi-Fi 网络及设备状态简化您的日常手机操作。
+
+核心功能：
+- 智能自动化流程：根据 GPS 位置、Wi-Fi 连接、电池电量及应用打开状态触发相应任务。
+- 环境模拟器：在激活自动化流程前，可在内置模拟器中实时测试效果。
+- 丰富精选模板：涵盖工作效率、省电模式及智能家居等多种常用工作流。
+- 100% 隐私保护：所有规则和数据均在本地处理，无需注册账号。
+
+立即使用 SwAIft，提升您的智能手机使用体验！"""),
+
+    # 12. Chinese (Traditional)
+    ("zh-TW", "SwAIft: 智慧自動化流程", "根據位置、Wi-Fi、電池狀態自動執行日常手機任務與設定。",
+"""SwAIft 是一款智慧且注重隱私的 Android 自動化應用程式，旨在根據環境條件、地理位置、Wi-Fi 網路及設備狀態簡化您的日常手機操作。
+
+核心功能：
+- 智慧自動化流程：根據 GPS 位置、Wi-Fi 連線、電池電量及應用程式開啟狀態觸發相應任務。
+- 環境模擬器：在啟用自動化流程前，可在內建模擬器中即時測試效果。
+- 豐富精緻範本：涵蓋工作效率、省電模式及智慧家居等多種常用工作流。
+- 100% 隱私保護：所有規則和資料均在本地處理，無需註冊帳號。
+
+立即使用 SwAIft，提升您的智慧型手機使用體驗！"""),
+
+    # 13. Korean
+    ("ko-KR", "SwAIft: 스마트 자동화", "위치, Wi-Fi, 배터리 상태에 맞춰 일상 스마트폰 작업을 자동화하세요.",
+"""SwAIft는 위치, Wi-Fi 네트워크, 배터리 잔량 등 주변 환경 조건에 따라 일상 스마트폰 작업을 자동으로 실행해 주는 스마트한 Android 자동화 앱입니다.
+
+주요 기능:
+- 스마트 자동화 루틴: GPS 위치, Wi-Fi, 배터리 및 앱 실행 상태에 따른 자동 액션.
+- 환경 시뮬레이터: 루틴 활성화 전 가상 환경에서 실시간 테스트 지원.
+- 유용한 템플릿: 생산성, 배터리 절약, 스마트홈 관련 완성형 플로우 제공.
+- 철저한 개인정보 보호: 모든 데이터와 규칙이 사용자 기기 내에만 로컬로 저장됩니다.
+
+SwAIft와 함께 더욱 편리한 스마트폰 라이프를 경험해보세요!"""),
+
+    # 14. Vietnamese
+    ("vi", "SwAIft: Tự động hóa", "Tự động hóa tác vụ hàng ngày, Wi-Fi, vị trí GPS & pin trên điện thoại.",
 """SwAIft là ứng dụng tự động hóa thông minh trên Android giúp tối ưu hóa thói quen hàng ngày của bạn dựa trên vị trí GPS, mạng Wi-Fi và trạng thái thiết bị.
 
 Tính năng nổi bật:
@@ -145,40 +170,718 @@ Tính năng nổi bật:
 - Mẫu quy trình có sẵn: Khám phá các luồng công việc cho năng suất và tiết kiệm pin.
 - Bảo mật tuyệt đối: Mọi dữ liệu được lưu trữ 100% cục bộ trên thiết bị của bạn.
 
-Trải nghiệm sự tiện lợi cùng SwAIft ngay hôm nay!""")
+Trải nghiệm sự tiện lợi cùng SwAIft ngay hôm nay!"""),
+
+    # 15. Hindi
+    ("hi-IN", "SwAIft: स्मार्ट ऑटोमेशन", "स्थान, वाई-फाई, बैटरी और दैनिक कार्यों को फोन पर स्वचालित करें।",
+"""SwAIft आपका बुद्धिमान और गोपनीयता-प्रथम एंड्रॉइड ऑटोमेशन ऐप है, जो स्थान, वाई-फाई और बैटरी स्थिति के आधार पर दैनिक कार्यों को स्वचालित करता है।
+
+मुख्य विशेषताएं:
+- बुद्धिमान स्वचालन: जीपीएस स्थान, वाई-फाई और बैटरी स्तरों के आधार पर कार्यों को ट्रिगर करें।
+- पर्यावरण सिम्युलेटर: सक्रिय करने से पहले अपने वर्कफ़्लो का लाइव परीक्षण करें।
+- तैयार टेम्पलेट्स: उत्पादकता और बैटरी बचत के लिए लोकप्रिय नियम खोजें।
+- पूर्ण गोपनीयता: सभी नियम और डेटा आपके डिवाइस पर 100% स्थानीय रूप से संसाधित होते हैं।
+
+SwAIft के साथ अपने स्मार्टफोन अनुभव को बेहतर बनाएं!"""),
+
+    # 16. Arabic
+    ("ar", "SwAIft: الأتمتة الذكية", "أتمتة المهام اليومية، Wi-Fi، الموقع الجغرافي وحفظ البطارية.",
+"""تطبيق SwAIft هو تطبيق الأتمتة الذكي على أندرويد لتسهيل المهام اليومية بناءً على الموقع الجغرافي، شبكة Wi-Fi، وحالة البطارية.
+
+الميزات الرئيسية:
+- قواعد أتمتة ذكية: تشغيل الإجراءات حسب موقع GPS وشبكات الواي فاي ومستوى البطارية.
+- محاكي البيئة: تجربة الاختبار المباشر للقواعد قبل تفعيلها.
+- قوالب جاهزة: اكتشف سير العمل الجاهز للإنتاجية وتوفير الطاقة.
+- خصوصية كاملة: تتم معالجة جميع البيانات محليًا بنسبة 100% على جهازك.
+
+حسّن تجربة استخدام هاتفك مع SwAIft اليوم!"""),
+
+    # 17. Indonesian
+    ("id", "SwAIft: Otomasi Pintar", "Otomatiskan tugas harian, Wi-Fi, lokasi GPS & hemat baterai HP.",
+"""SwAIft adalah aplikasi otomasi cerdas Android yang mengoptimalkan rutinitas harian Anda berdasarkan lokasi GPS, Wi-Fi, dan status baterai.
+
+Fitur Utama:
+- Rutinitas Otomasi Cerdas: Picu tindakan berdasarkan lokasi GPS, Wi-Fi, dan baterai.
+- Simulatror Lingkungan: Uji coba langsung aturan Anda sebelum diaktifkan.
+- Templat Siap Pakai: Temukan alur kerja untuk produktivitas dan hemat energi.
+- Privasi Total: Semua data diproses 100% secara lokal di perangkat Anda.
+
+Tingkatkan kenyamanan smartphone Anda bersama SwAIft!"""),
+
+    # 18. Thai
+    ("th", "SwAIft: ระบบอัตโนมัติ", "ระบบอัตโนมัติสำหรับงานประจำวัน ตำแหน่ง GPS Wi-Fi และประหยัดแบต",
+"""SwAIft เป็นแอปพลิเคชันระบบอัตโนมัติบน Android ที่ช่วยปรับปรุงงานประจำวันของคุณตามตำแหน่ง GPS, Wi-Fi และสถานะแบตเตอรี่
+
+คุณสมบัติเด่น:
+- กิจวัตรอัตโนมัติอัจฉริยะ: เรียกใช้การทำงานตามตำแหน่ง GPS, Wi-Fi และระดับแบตเตอรี่
+- ตัวจำลองสภาพแวดล้อม: ทดสอบกฎของคุณก่อนเปิดใช้งานจริง
+- ธีมและเทมเพลตพร้อมใช้งาน: ค้นหากระบวนการทำงานเพื่อผลผลิตและการประหยัดพลังงาน
+- ความเป็นส่วนตัวสมบูรณ์: ข้อมูลทั้งหมดประมวลผลในเครื่อง 100%
+
+ปรับปรุงประสบการณ์สมาร์ทโฟนของคุณด้วย SwAIft วันนี้!"""),
+
+    # 19. Turkish
+    ("tr-TR", "SwAIft: Akıllı Otomasyon", "Wi-Fi, GPS konum, pil ve günlük telefon görevlerini otomatikleştirin.",
+"""SwAIft, GPS konumu, Wi-Fi ağları ve pil durumuna göre günlük rutinlerinizi kolaylaştıran akıllı Android otomasyon uygulamasıdır.
+
+Öne Çıkan Özellikler:
+- Akıllı Otomasyon Rutinleri: GPS konumu, Wi-Fi ve pil seviyesine göre eylemleri tetikleyin.
+- Çevre Simülatörü: Kurallarınızı etkinleştirmeden önce canlı simülatörde test edin.
+- Hazır Şablonlar: Verimlilik ve pil tasarrufu için popüler akışları keşfedin.
+- Tam Gizlilik: Tüm veriler ve kurallar %100 yerel olarak cihazınızda işlenir.
+
+SwAIft ile akıllı telefon deneyiminizi geliştirin!"""),
+
+    # 20. Dutch
+    ("nl-NL", "SwAIft: Slimme Automatisering", "Automatiseer dagelijkse taken, wifi, GPS-locatie en batterijbesparing.",
+"""SwAIft is jouw slimme Android-automatiseringsapp die dagelijkse routines optimaliseert op basis van GPS-locatie, wifi-netwerken en batterijstatus.
+
+Belangrijkste functies:
+- Slimme automatiseringsroutines: Start acties op basis van GPS-locatie, wifi en batterijniveau.
+- Omgevingssimulator: Test je regels live voordat je ze activeert.
+- Kant-en-klare sjablonen: Ontdek workflows voor productiviteit en batterijbesparing.
+- Volledige privacy: Alle gegevens worden 100% lokaal op je apparaat verwerkt.
+
+Optimaliseer je smartphone-ervaring met SwAIft!"""),
+
+    # 21. Polish
+    ("pl-PL", "SwAIft: Automatyzacja", "Automatyzuj codzienne zadania, Wi-Fi, lokalizację GPS i baterię.",
+"""SwAIft to inteligentna aplikacja do automatyzacji Androida, zaprojektowana do usprawniania codziennych rutyn na podstawie lokalizacji GPS, Wi-Fi i stanu baterii.
+
+Główne funkcje:
+- Inteligentna automatyzacja: Uruchamiaj akcje na podstawie lokalizacji GPS, Wi-Fi i poziomu baterii.
+- Symulator otoczenia: Testuj reguły na żywo przed ich włączeniem.
+- Gotowe szablony: Odkrywaj przepływy pracy dla produktywności i oszczędzania energii.
+- Pełna prywatność: Wszystkie dane i reguły są przetwarzane w 100% lokalnie na Twoim urządzeniu.
+
+Zoptymalizuj obsługę smartfona dzięki SwAIft!"""),
+
+    # 22. Swedish
+    ("sv-SE", "SwAIft: Smart Automatisering", "Automatisera dagliga mobiltjänster, Wi-Fi, GPS och batterisparande.",
+"""SwAIft är din intelligenta Android-automatiseringsapp som förenklar dina dagliga rutiner baserat på GPS-platser, Wi-Fi-nätverk och batteristatus.
+
+Huvudfunktioner:
+- Smarta automatiseringsrutiner: Starta åtgärder baserat på GPS, Wi-Fi och batterinivåer.
+- Miljösimulator: Testkör dina regler innan de aktiveras.
+- Färdiga mallar: Upptäck flöden för produktivitet och batterisparing.
+- Fullständig integritet: All data behandlas 100 % lokalt på din enhet.
+
+Optimera din mobilupplevelse med SwAIft!"""),
+
+    # 23. Danish
+    ("da-DK", "SwAIft: Smart Automatisering", "Automatiser daglige opgaver, Wi-Fi, GPS-placering og batteri.",
+"""SwAIft er din intelligente Android-automatiseringsapp, der optimerer dine daglige rutiner baseret på GPS, Wi-Fi og batteristatus.
+
+Nøglefunktioner:
+- Smarte automatiseringsrutiner: Udløs handlinger baseret på GPS-placering, Wi-Fi og batteri.
+- Miljøsimulator: Test dine regler live, før du aktiverer dem.
+- Klar-til-brug skabeloner: Opdag arbejdsgange til effektivitet og strømbesparelse.
+- Fuld fortrolighed: Alle data behandles 100% lokalt på din enhed.
+
+Optimer din smartphone-oplevelse med SwAIft!"""),
+
+    # 24. Finnish
+    ("fi-FI", "SwAIft: Älykäs Automaatio", "Automatisoi päivittäiset tehtävät, Wi-Fi, GPS ja akun säästö.",
+"""SwAIft on älykäs Android-automaatiosovellus, joka suorittaa päivittäisiä rutiineja GPS-sijainnin, Wi-Fi-verkkojen ja akun tilan mukaan.
+
+Tärkeimmät ominaisuudet:
+- Älykkäät automaatiorutiinit: Käynnistä toimintoja GPS-sijainnin, Wi-Fi:n ja akun tason perusteella.
+- Ympäristösimulaattori: Testaa sääntöjäsi livenä ennen niiden aktivointia.
+- Valmiit mallit: Löydä työnkulkuja tuottavuuteen ja akun säästöön.
+- Täydellinen yksityisyys: Kaikki tiedot käsitellään 100-prosenttisesti paikallisesti laitteellasi.
+
+Optimoi älypuhelimesi käyttö SwAIftin avulla!"""),
+
+    # 25. Norwegian
+    ("no-NO", "SwAIft: Smart Automatisering", "Automatiser daglige oppgaver, Wi-Fi, GPS-posisjon og batterisparing.",
+"""SwAIft er din intelligente Android-automatiseringsapp som forenkler dine daglige rutiner basert på GPS, Wi-Fi og batteristatus.
+
+Hovedfunksjoner:
+- Smarte automatiseringsrutiner: Utløs handlinger basert på GPS-posisjon, Wi-Fi og batterinivå.
+- Miljøsimulator: Test reglene dine live før du aktiverer dem.
+- Ferdige maler: Oppdag arbeidsflyter for produktivitet og batterisparing.
+- Fullt personvern: Alle data behandles 100 % lokalt på enheten din.
+
+Optimaliser din smarttelefonopplevelse med SwAIft!"""),
+
+    # 26. Czech
+    ("cs-CZ", "SwAIft: Chytrá Automatizace", "Automatizujte denní úkoly, Wi-Fi, GPS polohu a úsporu baterie.",
+"""SwAIft je vaše inteligentní automatizační aplikace pro Android, která zjednodušuje každodenní rutiny na základě GPS polohy, Wi-Fi a stavu baterie.
+
+Klíčové funkce:
+- Inteligentní automatizační rutiny: Spouštějte akce na základě GPS polohy, Wi-Fi a baterie.
+- Simulátor prostředí: Testujte svá pravidla živě před jejich aktivací.
+- Připravené šablony: Objevte pracovní postupy pro produktivitu a úsporu baterie.
+- Úplné soukromí: Všechna data se zpracovávají 100% lokálně ve vašem zařízení.
+
+Vylepšete své zážitky ze smartphonu s aplikací SwAIft!"""),
+
+    # 27. Ukrainian
+    ("uk", "SwAIft: Розумна Автоматизація", "Автоматизація щоденних завдань, Wi-Fi, GPS та економії батареї.",
+"""SwAIft — це розумний додаток для автоматизації Android, створений для оптимізації вашого дня на основі GPS, Wi-Fi та стану батареї.
+
+Основні функції:
+- Розумні сценарії автоматизації: Запуск дій за GPS-локацією, Wi-Fi та рівнем заряду.
+- Симулятор оточення: Тестуйте ваші правила в реальному часі перед активацією.
+- Готові шаблони: Сценарії для продуктивності та енергозбереження.
+- Повна конфіденційність: Усі дані обробляються на 100% локально на вашому пристрої.
+
+Зробіть ваш смартфон розумнішим із SwAIft!"""),
+
+    # 28. Hungarian
+    ("hu-HU", "SwAIft: Okos Automatizálás", "Automatizálja a napi feladatokat, Wi-Fi-t, GPS-t és az akkumulátort.",
+"""A SwAIft egy intelligens Android automatizálási alkalmazás, amely egyszerűsíti a napi rutinokat a GPS-helyszín, Wi-Fi és akkumulátor alapján.
+
+Főbb jellemzők:
+- Okos automatizálási rutinok: Indítson műveleteket GPS-helyszín, Wi-Fi és akkumulátorszint alapján.
+- Környezeti szimulátor: Tesztelje szabályait élőben az aktiválás előtt.
+- Kész sablonok: Fedezzen fel folyamatokat a hatékonyság és energiatakarékosság érdekében.
+- Teljes adatvédelem: Minden adat 100%-ban helyileg dolgozódik fel eszközén.
+
+Optimalizálja okostelefonos élményét a SwAIft segítségével!"""),
+
+    # 29. Romanian
+    ("ro", "SwAIft: Automatizare Smart", "Automatizați sarcinile zilnice, Wi-Fi, locația GPS și bateria.",
+"""SwAIft este aplicația dvs. inteligentă de automatizare pentru Android, concepută pentru a optimiza rutinele zilnice pe baza locației GPS, Wi-Fi și bateriei.
+
+Caracteristici cheie:
+- Rutine de automatizare inteligente: Declanșați acțiuni în funcție de locația GPS, Wi-Fi și baterie.
+- Simulator de mediu: Testați regulile live înainte de a le activa.
+- Șabloane gata de utilizare: Descoperiți fluxuri de lucru pentru productivitate și economisire a energiei.
+- Confidențialitate totală: Toate datele sunt procesate 100% local pe dispozitiv.
+
+Optimizați-vă smartphone-ul cu SwAIft!"""),
+
+    # 30. Greek
+    ("el-GR", "SwAIft: Έξυπνος Αυτοματισμός", "Αυτοματοποιήστε καθημερινές εργασίες, Wi-Fi, GPS και μπαταρία.",
+"""Το SwAIft είναι η έξυπνη εφαρμογή αυτοματισμού Android που απλοποιεί τις καθημερινές σας ρουτίνες με βάση την τοποθεσία GPS, το Wi-Fi και τη μπαταρία.
+
+Κύρια χαρακτηριστικά:
+- Έξυπνες ρουτίνες αυτοματισμού: Ενεργοποιήστε ενέργειες βάσει GPS, Wi-Fi και στάθμης μπαταρίας.
+- Προσομοιωτής περιβάλλοντος: Δοκιμάστε τους κανόνες σας ζωντανά πριν την ενεργοποίηση.
+- Έτοιμα πρότυπα: Ανακαλύψτε ροές εργασίας για παραγωγικότητα και εξοικονόμηση ενέργειας.
+- Πλήρης ιδιωτικότητα: Όλα τα δεδομένα επεξεργάζονται 100% τοπικά στη συσκευή σας.
+
+Βελτιώστε την εμπειρία χρήσης του smartphone σας με το SwAIft!"""),
+
+    # 31. Bulgarian
+    ("bg", "SwAIft: Умна Автоматизация", "Автоматизирайте ежедневни задачи, Wi-Fi, GPS и пестене на батерия.",
+"""SwAIft е вашето интелигентно приложение за автоматизация на Android, създадено да оптимизира ежедневните задачи въз основа на GPS, Wi-Fi и батерията.
+
+Основни функции:
+- Умни рутини за автоматизация: Стартирайте действия въз основа на GPS локация, Wi-Fi и батерия.
+- Симулатор на средата: Тествайте правилата си на живо преди активиране.
+- Готови шаблони: Открийте работни процеси за продуктивност и пестене на енергия.
+- Пълна поверителност: Всички данни се обработват 100% локално на вашето устройство.
+
+Оптимизирайте работата със смартфона си със SwAIft!"""),
+
+    # 32. Croatian
+    ("hr", "SwAIft: Pametna Automatizacija", "Automatizirajte svakodnevne zadatke, Wi-Fi, GPS lokaciju i bateriju.",
+"""SwAIft je vaša inteligentna aplikacija za automatizaciju Androida, dizajnirana za pojednostavljenje svakodnevnih rutina na temelju GPS lokacije, Wi-Fi mreža i baterije.
+
+Glavne značajke:
+- Pametne rutine automatizacije: Pokrenite radnje na temelju GPS lokacije, Wi-Fi-ja i razine baterije.
+- Simulator okruženja: Testirajte svoja pravila uživo prije aktivacije.
+- Gotovi predlošci: Otkrijte tijekove rada za produktivnost i uštedu energije.
+- Potpuna privatnost: Svi se podaci obrađuju 100% lokalno na vašem uređaju.
+
+Poboljšajte svoje iskustvo na pametnom telefonu uz SwAIft!"""),
+
+    # 33. Slovak
+    ("sk", "SwAIft: Inteligentná Automatizácia", "Automatizujte denné úlohy, Wi-Fi, GPS polohu a úsporu batérie.",
+"""SwAIft je vaša inteligentná automatizačná aplikácia pre Android, ktorá zjednodušuje každodenné rutiny na základe GPS polohy, Wi-Fi a stavu batérie.
+
+Kľúčové funkcie:
+- Inteligentné automatizačné rutiny: Spúšťajte akcie na základe GPS polohy, Wi-Fi a batérie.
+- Simulátor prostredia: Testujte svoje pravidlá naživo pred ich aktiváciou.
+- Pripravené šablóny: Objavte pracovné postupy pre produktivitu a úsporu batérie.
+- Úplné súkromie: Všetky údaje sa spracovávajú 100% lokálne vo vašom zariadení.
+
+Vylepšite svoje zážitky zo smartfónu s aplikáciou SwAIft!"""),
+
+    # 34. Slovenian
+    ("sl", "SwAIft: Pametna Avtomatizacija", "Avtomatizirajte dnevna opravila, Wi-Fi, GPS lokacijo in baterijo.",
+"""SwAIft je vaša inteligentna aplikacija za avtomatizacijo v sistemu Android, ki poenostavi vaše dnevne rutine glede na GPS lokacijo, Wi-Fi in baterijo.
+
+Glavne funkcije:
+- Pametne rutine avtomatizacije: Sprožite dejanja na podlagi GPS lokacije, Wi-Fi in baterije.
+- Simulator okolja: Preizkusite svoja pravila v živo pred aktivacijo.
+- Pripravljene predloge: Odkrijte poteke dela za produktivnost in varčevanje z energijo.
+- Popolna zasebnost: Vsi podatki se obdelujejo 100 % lokalno v vaši napravi.
+
+Izboljšajte izkušnjo s pametnim telefonom z aplikacijo SwAIft!"""),
+
+    # 35. Hebrew
+    ("iw-IL", "SwAIft: אוטומציה חכמה", "אוטומציה של משימות יומיות, Wi-Fi, מיקום GPS וחיסכון בסוללה.",
+"""SwAIft היא אפליקציית האוטומציה החכמה שלך לאנדרואיד, המיועדת לייעל את השגרה היומית שלך בהתבסס על מיקום GPS, רשתות Wi-Fi ומצב הסוללה.
+
+תכונות עיקריות:
+- שגרות אוטומציה חכמות: הפעלת פעולות לפי מיקום GPS, Wi-Fi ורמת סוללה.
+- סימולטור סביבה: בדיקה חיה של הכללים שלך לפני הפעלתם.
+- תבניות מוכנות: גילוי זרימות עבודה לפרודוקטיביות וחיסכון באנרגיה.
+- פרטיות מלאה: כל הנתונים והכללים מבוצעים 100% מקומית במכשיר שלך.
+
+שפר את חווית השימוש בסמארטפון שלך עם SwAIft!"""),
+
+    # 36. Malay
+    ("ms", "SwAIft: Automasi Pintar", "Automatisikan tugas harian, Wi-Fi, lokasi GPS & jimat bateri.",
+"""SwAIft ialah aplikasi automasi Android pintar yang mempermudah rutin harian anda berdasarkan lokasi GPS, rangkaian Wi-Fi dan status bateri.
+
+Ciri-ciri Utama:
+- Rutin Automasi Pintar: Cetuskan tindakan berdasarkan lokasi GPS, Wi-Fi dan paras bateri.
+- Simulator Persekitaran: Uji peraturan anda secara langsung sebelum diaktifkan.
+- Templat Sedia Ada: Terokai aliran kerja untuk produktiviti dan penjimatan tenaga.
+- Privasi Sepenuhnya: Semua data diproses 100% secara tempatan pada peranti anda.
+
+Tingkatkan pengalaman telefon pintar anda bersama SwAIft hari ini!"""),
+
+    # 37. Filipino
+    ("fil", "SwAIft: Smart Automation", "I-automate ang pang-araw-araw na gawain, Wi-Fi, GPS at baterya.",
+"""Ang SwAIft ay ang iyong matalinong Android automation app na ginawa upang mapabilis ang iyong araw-araw na gawain batay sa lokasyon ng GPS, Wi-Fi, at baterya.
+
+Pangunahing Tampok:
+- Smart Automation Routines: Mag-trigger ng aksyon batay sa GPS, Wi-Fi at antas ng baterya.
+- Environment Simulator: Subukan ang iyong mga panuntunan nang live bago i-activate.
+- Handang Templates: Tumuklas ng mga workflow para sa pagiging produktibo at pagtitipid sa baterya.
+- Kumpletong Privacy: Lahat ng data ay 100% pinoproseso nang lokal sa iyong device.
+
+Pahusayin ang iyong karanasan sa smartphone gamit ang SwAIft!"""),
+
+    # 38. Bengali
+    ("bn-BD", "SwAIft: স্মার্ট অটোমেশন", "দৈনন্দিন কাজ, ওয়াই-ফাই, জিপিএস অবস্থান এবং ব্যাটারি সেভ করুন।",
+"""SwAIft হলো একটি বুদ্ধিমত্তা সম্পন্ন অ্যান্ড্রয়েড অটোমেশন অ্যাপ, যা জিপিএস অবস্থান, ওয়াই-ফাই এবং ব্যাটারির উপর ভিত্তি করে আপনার দৈনন্দিন কাজ স্বয়ংক্রিয় করে।
+
+প্রধান বৈশিষ্ট্যসমূহ:
+- স্মার্ট অটোমেশন রুটিন: জিপিএস অবস্থান, ওয়াই-ফাই এবং ব্যাটারির উপর ভিত্তি করে কাজ পরিচালনা করুন।
+- পরিবেশ সিমুলেটর: সক্রিয় করার আগে লাইভ নিয়ম পরীক্ষা করুন।
+- তৈরি টেমপ্লেট: উৎপাদনশীলতা এবং ব্যাটারি সঞ্চয়ের প্রবাহ আবিষ্কার করুন।
+- সম্পূর্ণ গোপনীয়তা: সমস্ত ডেটা ১০০% স্থানীয়ভাবে আপনার ডিভাইসে প্রক্রিয়া করা হয়।
+
+SwAIft-এর সাথে আপনার স্মার্টফোনের ব্যবহার আরও উন্নত করুন!"""),
+
+    # 39. Tamil
+    ("ta-IN", "SwAIft: ஸ்மார்ட் தானியக்கம்", "தினசரி பணிகள், வைஃபை, ஜிபிஎஸ் இடம் மற்றும் பேட்டரியை தானியக்கமாக்குங்கள்.",
+"""SwAIft என்பது ஜிபிஎஸ் இருப்பிடம், வைஃபை மற்றும் பேட்டரி நிலையின் அடிப்படையில் தினசரி பணிகளை எளிதாக்க طراحی செய்யப்பட்ட ஒரு ஸ்மார்ட் ஆண்ட்ராய்டு ஆப் ஆகும்.
+
+முக்கிய அம்சங்கள்:
+- ஸ்மார்ட் தானியங்கு நடைமுறைகள்: ஜிபிஎஸ், வைஃபை மற்றும் பேட்டரி அடிப்படையில் செயல்களைத் தொடங்குங்கள்.
+- சுற்றுச்சூழல் உருவகப்படுத்துதல்: செயல்படுத்துவதற்கு முன் உங்கள் விதிகளை நேரலை ஆய்வு செய்யுங்கள்.
+- ஆயத்த வார்ப்புருக்கள்: உற்பத்தித்திறன் மற்றும் பேட்டரி சேமிப்பிற்கான பணிப்பாய்வுகளைக் கண்டறியவும்.
+- முழுமையான தனியுரிமை: அனைத்து தரவுகளும் 100% உள்ளூர் சாதனத்தில் மட்டுமே செயலாக்கப்படும்.
+
+SwAIft உடன் உங்கள் ஸ்மார்ட்போன் அனுபவத்தை மேம்படுத்துங்கள்!"""),
+
+    # 40. Telugu
+    ("te-IN", "SwAIft: స్మార్ట్ ఆటోమేషన్", "రోజువారీ పనులు, Wi-Fi, GPS స్థానం మరియు బ్యాటరీని ఆటోమేట్ చేయండి.",
+"""SwAIft అనేది GPS స్థానం, Wi-Fi మరియు బ్యాటరీ ఆధారంగా మీ రోజువారీ పనులను సులభతరం చేసే స్మార్ట్ ఆండ్రాయిడ్ ఆటోమేషన్ యాప్.
+
+ముఖ్య లక్షణాలు:
+- స్మార్ట్ ఆటోమేషన్ రూటీన్లు: GPS, Wi-Fi మరియు బ్యాటరీ ఆధారంగా చర్యలను ట్రిగ్గర్ చేయండి.
+- వాతావరణ సిమ్యులేటర్: యాక్టివేట్ చేయడానికి ముందు లైవ్‌లో పరీక్షించండి.
+- సిద్దంగా ఉన్న టెంప్లేట్లు: ఉత్పత్తి మరియు బ్యాటరీ ఆదా కోసం ఫ్లోలను కనుగొనండి.
+- సంపూర్ణ గోప్యత: మొత్తం డేటా 100% స్థానికంగా మీ పరికరంలోనే ప్రాసెస్ చేయబడుతుంది.
+
+SwAIftతో మీ స్మార్ట్‌ఫోన్ అనుభవాన్ని మెరుగుపరచుకోండి!"""),
+
+    # 41. Marathi
+    ("mr-IN", "SwAIft: स्मार्ट ऑटोमेशन", "स्थान, वाय-फाय, बॅटरी आणि दैनंदिन कामे स्वयंचलित करा.",
+"""SwAIft हे एक बुद्धिमान अँड्रॉइड ऑटोमेशन ॲप आहे जे GPS स्थान, वाय-फाय आणि बॅटरीच्या आधारे दैनंदिन कामे सुलभ करते.
+
+प्रमुख वैशिष्ट्ये:
+- स्मार्ट ऑटोमेशन रूटीन: GPS स्थान, वाय-फाय आणि बॅटरीवर आधारित कृती सुरू करा.
+- एन्व्हायर्नमेंट सिम्युलेटर: सक्रिय करण्यापूर्वी थेट चाचणी करा.
+- रेडी टेम्पलेट्स: उत्पादकता आणि बॅटरी बचतीसाठी कार्यप्रवाह शोधा.
+- संपूर्ण गोपनीयता: सर्व डेटा 100% आपल्या डिव्हाइसवर स्थानिक पातळीवर प्रक्रिया केला जातो.
+
+SwAIft सह आपला स्मार्टफोन अनुभव अधिक चांगला करा!"""),
+
+    # 42. Gujarati
+    ("gu", "SwAIft: સ્માર્ટ ઓટોમેશન", "દૈનિક કાર્યો, વાઇ-ફાઇ, GPS સ્થાન અને બેટરી બચત ઓટોમેટ કરો.",
+"""SwAIft એ એક આઇડીયા એન્ડ્રોઇડ ઓટોમેશન એપ છે જે GPS સ્થાન, વાઇ-ફાઇ અને બેટરીની સ્થિતિના આધારે દૈનિક કાર્યોને સરળ બનાવે છે.
+
+મુખ્ય વિશેષતાઓ:
+- સ્માર્ટ ઓટોમેશન રૂટિન: GPS, વાઇ-ફાઇ અને બેટરીના આધારે એક્શન સક્રિય કરો.
+- પર્યાવરણ સિમ્યુલેટર: સક્રિય કરતા પહેલાં લાઇવ ટેસ્ટ કરો.
+- તૈયાર ટેમ્પ્લેટ્સ: ઉત્પાદકતા અને બેટરી બચત માટે વર્કફ્લો શોધો.
+- સંપૂર્ણ ગોપનીયતા: તમામ ડેટા 100% તમારા ઉપકરણ પર પ્રોસેસ થાય છે.
+
+SwAIft સાથે તમારા સ્માર્ટફોન અનુભવને વધુ બહેતર બનાવો!"""),
+
+    # 43. Kannada
+    ("kn-IN", "SwAIft: ಸ್ಮಾರ್ಟ್ ಸ್ವಯಂಚಾಲಿತ", "ದೈನಂದಿನ ಕೆಲಸಗಳು, ವೈ-ಫೈ, GPS ಸ್ಥಳ ಮತ್ತು ಬ್ಯಾಟರಿ ಉಳಿಸಿ.",
+"""SwAIft ಎಂಬುದು GPS ಸ್ಥಳ, ವೈ-ಫೈ ಮತ್ತು ಬ್ಯಾಟರಿ ಆಧಾರದ ಮೇಲೆ ನಿಮ್ಮ ದೈನಂದಿನ ಕಾರ್ಯಗಳನ್ನು ಸರಳಗೊಳಿಸುವ ಸ್ಮಾರ್ಟ್ ಆಂಡ್ರಾಯ್ಡ್ ಸ್ವಯಂಚಾಲಿತ ಅಪ್ಲಿಕೇಶನ್ ಆಗಿದೆ.
+
+ಮುಖ್ಯ ವೈಶಿಷ್ಟ್ಯಗಳು:
+- ಸ್ಮಾರ್ಟ್ ಸ್ವಯಂಚಾಲಿತ ರೂಟೀನ್‌ಗಳು: GPS, ವೈ-ಫೈ ಮತ್ತು ಬ್ಯಾಟರಿ ಮಟ್ಟ ಆಧರಿಸಿ ಕ್ರಿಯೆಗಳನ್ನು ಪ್ರಚೋದಿಸಿ.
+- ಎನ್ವಿರಾನ್ಮೆಂಟ್ ಸಿಮ್ಯುಲೇಟರ್: ಸಕ್ರಿಯಗೊಳಿಸುವ ಮೊದಲು ಲೈವ್ ಪರೀಕ್ಷಿಸಿ.
+- ಸಿದ್ಧ ಟೆಂಪ್ಲೇಟ್‌ಗಳು: ಉತ್ಪಾದಕತೆ ಮತ್ತು ಬ್ಯಾಟರಿ ಉಳಿತಾಯದ ಹರಿವುಗಳನ್ನು ಅನ್ವೇಷಿಸಿ.
+- ಸಂಪೂರ್ಣ ಗೌಪ್ಯತೆ: සියලුම డేಟಾವನ್ನು 100% ನಿಮ್ಮ ಸಾಧನದಲ್ಲೇ ಸ್ಥಳೀಯವಾಗಿ ಪ್ರಕ್ರಿಯೆಗೊಳಿಸಲಾಗುತ್ತದೆ.
+
+SwAIft ನೊಂದಿಗೆ ನಿಮ್ಮ ಸ್ಮಾರ್ಟ್‌ಫೋನ್ ಅನುಭವವನ್ನು ಹೆಚ್ಚಿಸಿ!"""),
+
+    # 44. Malayalam
+    ("ml-IN", "SwAIft: സ്മാർട്ട് ഓട്ടോമേഷൻ", "ദിനചര്യകൾ, വൈഫൈ, ജിപിഎസ് ലൊക്കേഷൻ, ബാറ്ററി ഓട്ടോമേറ്റ് ചെയ്യുക.",
+"""GPS ലൊക്കേഷൻ, வைഫൈ, ബാറ്ററി എന്നിവയെ അടിസ്ഥാനമാക്കി നിങ്ങളുടെ ദൈനംദിന പ്രവർത്തികൾ ലളിതമാക്കുന്ന സ്മാർട്ട് ആൻഡ്രോയിഡ് ഓട്ടോമേഷൻ ആപ്പാണ് SwAIft.
+
+പ്രധാന സവിശേഷതകൾ:
+- സ്മാർട്ട് ഓട്ടോമേഷൻ റൂട്ടീനുകൾ: ജിപിഎസ്, വൈഫൈ, ബാറ്ററി എന്നിവ അടിസ്ഥാനമാക്കി പ്രവർത്തനങ്ങൾ ആരംഭിക്കുക.
+- എൻവയോൺമെന്റ് സിമുലേറ്റർ: സജീവമാക്കുന്നതിന് മുമ്പ് തത്സമയം പരിശോധിക്കുക.
+- റെഡി ടെംപ്ലേറ്റുകൾ: ഉൽപ്പാദനക്ഷമതയ്ക്കും ബാറ്ററി ലാഭിക്കലിനുമുള്ള വർക്ക്ഫ്ലോകൾ കണ്ടെത്തുക.
+- സമ്പൂർണ്ണ സ്വകാര്യത: എല്ലാ ഡാറ്റയും 100% പ്രാദേശികമായി നിങ്ങളുടെ ഉപകരണത്തിൽ തന്നെ പ്രോസസ്സ് ചെയ്യുന്നു.
+
+SwAIft ഉപയോഗിച്ച് നിങ്ങളുടെ സ്മാർട്ട്ഫോൺ അനുഭവം മെച്ചപ്പെടുത്തൂ!"""),
+
+    # 45. Urdu
+    ("ur", "SwAIft: سمارٹ آٹومیشن", "روزمرہ کے کام، وائی فائی، لوکیشن اور بیٹری سیونگ کو خودکار بنائیں۔",
+"""SwAIft ایک ذہین اینڈرائیڈ آٹومیشن ایپ ہے جو GPS لوکیشن، وائی فائی اور بیٹری کی بنیاد پر آپ کے روزمرہ کے کاموں کو آسان بناتی ہے۔
+
+اہم خصوصیات:
+- سمارٹ آٹومیشن روٹینز: GPS، وائی فائی اور بیٹری لیول کی بنیاد پر اقدامات کو فعال کریں۔
+- ماحول کا سمیلیٹر: فعال کرنے سے پہلے اپنے قواعد کو لائیو ٹیسٹ کریں۔
+- تیار ٹیمپلیٹس: پروڈکٹیوٹی اور بیٹری سیونگ کے لیے ورک فلو دریافت کریں۔
+- مکمل پرائیویسی: تمام ڈیٹا اور قواعد 100% مقامی طور پر آپ کے آلے پر پروسیس ہوتے ہیں۔
+
+SwAIft کے ساتھ اپنے اسمارٹ فون کے تجربے کو بہتر بنائیں!"""),
+
+    # 46. Persian
+    ("fa", "SwAIft: اتوماسیون هوشمند", "خودکارسازی کارهای روزمره، وای‌فای، موقعیت مکانی و مصرف باتری.",
+"""SwAIft یک برنامه اتوماسیون هوشمند اندروید است که کارهای روزمره شما را بر اساس موقعیت GPS، وای‌فای و وضعیت باتری آسان می‌کند.
+
+ویژگی‌های کلیدی:
+- روتین‌های اتوماسیون هوشمند: شروع اقدامات بر اساس موقعیت مکانی، وای‌فای و سطح باتری.
+- شبیه‌ساز محیط: تست زنده قوانین قبل از فعال‌سازی.
+- قالب‌های آماده: کشف جریان‌های کاری برای بهره‌وری و کاهش مصرف باتری.
+- حریم خصوصی کامل: تمام داده‌ها به صورت ۱۰۰٪ محلی روی دستگاه شما پردازش می‌شوند.
+
+تجربه استفاده از گوشی هوشمند خود را با SwAIft ارتقا دهید!"""),
+
+    # 47. Swahili
+    ("sw", "SwAIft: Uotomatishaji Smart", "Otomatisha kazi za kila siku, Wi-Fi, eneo la GPS na betri.",
+"""SwAIft ni programu yako ya uotomatishaji mahiri ya Android iliyoundwa kurahisisha taratibu zako za kila siku kulingana na eneo la GPS, Wi-Fi na betri.
+
+Vipengele Muhimu:
+- Ratiba Mahiri za Uotomatishaji: Anzisha vitendo kulingana na eneo la GPS, Wi-Fi na betri.
+- Kisimulizi cha Mazingira: Jaribu sheria zako kabla ya kuziamsha.
+- Sampuli Tayari: Gundua mtiririko wa kazi wa uzalishaji na kuokoa betri.
+- Faragha Kamili: Data yote inachakatwa 100% ndani ya kifaa chako.
+
+Boresha matumizi yako ya smartphone ukitumia SwAIft leo!"""),
+
+    # 48. Afrikaans
+    ("af", "SwAIft: Slim Outomatisering", "Outomatiseer daaglikse take, Wi-Fi, GPS-ligging en battery.",
+"""SwAIft is jou slim Android-outomatiseringsprogram wat daaglikse roetines vereenvoudig op grond van GPS-ligging, Wi-Fi en batterystatus.
+
+Sleutelkenmerke:
+- Slim outomatisering: Begin aksies gebaseer op GPS-ligging, Wi-Fi en batteryvlokke.
+- Omgewingsimulator: Toets jou reëls regstreeks voordat jy dit aktiveer.
+- Gereed sjablone: Ontdek werkvloeie vir produktiwiteit en batterybesparing.
+- Volledige privaatheid: Alle data word 100% plaaslik op jou toestel verwerk.
+
+Optimaliseer jou slimfoonervaring met SwAIft!"""),
+
+    # 49. Estonian
+    ("et", "SwAIft: Nutikas Automatiseerimine", "Automatiseerige igapäevased ülesanded, Wi-Fi, GPS ja aku sääst.",
+"""SwAIft on teie nutikas Androidi automatiseerimisrakendus, mis lihtsustab igapäevaseid rutiine GPS-asukoha, Wi-Fi ja aku oleku põhjal.
+
+Põhifunktsioonid:
+- Nutikad automatiseerimisrutiinid: Käivitage toiminguid GPS-i, Wi-Fi ja aku taseme põhjal.
+- Keskkonnasimulaator: Testige reegleid enne nende aktiveerimist.
+- Valmis mallid: Avastage töövooge tootlikkuse ja aku säästmise jaoks.
+- Täielik privaatsus: Kõik andmed töödeldakse 100% kohalikult teie seadmes.
+
+Optimeerige oma nutitelefoni kogemust SwAIftiga!"""),
+
+    # 50. Latvian
+    ("lv", "SwAIft: Viedā Automatizācija", "Automatizējiet ikdienas uzdevumus, Wi-Fi, GPS un akumulatoru.",
+"""SwAIft ir jūsu viedā Android automatizācijas lietotne, kas atvieglo ikdienas rutīnas, balstoties uz GPS atrašanās vietu, Wi-Fi un akumulatoru.
+
+Galvenās iezīmes:
+- Viedās automatizācijas rutīnas: Palaidiet darbības, balstoties uz GPS, Wi-Fi un akumulatoru.
+- Vides simulators: Pārbaudiet savus noteikumus tiešraidē pirms to aktivizēšanas.
+- Gatavas veidnes: Atklājiet darbplūsmas produktivitātei un akumulatora taupīšanai.
+- Pilnīga konfidencialitāte: Visi dati tiek apstrādāti 100% lokāli jūsu ierīcē.
+
+Uzlabojiet savu viedtālruņa lietošanas pieredzi ar SwAIft!"""),
+
+    # 51. Lithuanian
+    ("lt", "SwAIft: Išmanus Automatizavimas", "Automatizuokite kasdienes užduotis, Wi-Fi, GPS ir bateriją.",
+"""SwAIft yra jūsų išmani „Android“ automatizavimo programa, supaprastinanti kasdienes užduotis pagal GPS vietą, „Wi-Fi“ ir baterijos būseną.
+
+Pagrindinės funkcijos:
+- Išmanios automatizavimo rutinos: Aktyvuokite veiksmus pagal GPS, „Wi-Fi“ ir baterijos lygį.
+- Aplinkos simuliatorius: Išbandykite taisykles tiesiogiai prieš jas aktyvuodami.
+- Paruošti šablonai: Atradote darbo eigas produktyvumui ir baterijos taupymui.
+- Visiškas privatumas: Visi duomenys apdorojami 100 % lokaliai jūsų įrenginyje.
+
+Optimizuokite savo išmaniojo telefono patirtį su SwAIft!"""),
+
+    # 52. Georgian
+    ("ka-GE", "SwAIft: ავტომატიზაცია", "ყოველდღიური ამოცანების, Wi-Fi-ს, GPS-ისა და ელემენტის ავტომატიზაცია.",
+"""SwAIft არის ჭკვიანი Android ავტომატიზაციის აპლიკაცია, რომელიც ამარტივებს ყოველდღიურ რუტინას GPS-ის, Wi-Fi-სა და ელემენტის მიხედვით.
+
+ძირითადი მახასიათებლები:
+- ჭკვიანი ავტომატიზაცია: მოქმედებების გაშვება GPS-ის, Wi-Fi-სა და ელემენტის დონის მიხედვით.
+- გარემოს სიმულატორი: წესების ცოცხალი ტესტირება გააქტიურებამდე.
+- მზა შაბლონები: პროდუქტიულობისა და ენერგიის დაზოგვის ნაკადები.
+- სრული კონფიდენციალურობა: ყველა მონაცემი 100%-ით მუშავდება ლოკალურად თქვენს მოწყობილობაზე.
+
+გააუმჯობესეთ თქვენი სმარტფონის გამოცდილება SwAIft-თან ერთად!"""),
+
+    # 53. Armenian
+    ("hy-AM", "SwAIft: Ավտոմատացում", "Ավտոմատացրեք ամենօրյա առաջադրանքները, Wi-Fi-ը, GPS-ը և մարտկոցը:",
+"""SwAIft-ը Android-ի խելացի ավտոմատացման հավելված է, որը պարզեցնում է ամենօրյա աշխատանքը GPS-ի, Wi-Fi-ի և մարտկոցի հիման վրա:
+
+Հիմնական առանձնահատկությունները.
+- Խելացի ավտոմատացման ռեժիմներ. Գործողությունների մեկնարկ GPS-ի, Wi-Fi-ի և մարտկոցի հիման վրա:
+- Միջավայրի սիմուլյատոր. Ստուգեք կանոնները նախքան դրանց ակտիվացումը:
+- Պատրաստի կաղապարներ. Բացահայտեք աշխատանքային հոսքեր արտադրողականության և էներգախնայողության համար:
+- Լիակատար գաղտնիություն. Բոլոր տվյալները 100%-ով մշակվում են տեղում՝ ձեր սարքում:
+
+Օպտիմալացրեք ձեր սմարթֆոնի փորձը SwAIft-ի միջոցով:"""),
+
+    # 54. Kazakh
+    ("kk", "SwAIft: Смарт Автоматтандыру", "Күнделікті тапсырмаларды, Wi-Fi, GPS және батареяны автоматтандыру.",
+"""SwAIft — бұл GPS орналасқан жері, Wi-Fi және батарея күйі негізінде күнделікті тапсырмаларды жеңілдететін смарт Android автоматтандыру қолданбасы.
+
+Негізгі мүмкіндіктері:
+- Смарт автоматтандыру ережелері: GPS, Wi-Fi және батарея деңгейіне байланысты әрекеттерді іске қосыңыз.
+- Орта симуляторы: Ережелерді белсендірмес бұрын тікелей сынақтан өткізіңіз.
+- Дайын үлгілер: Өнімділік пен батареяны үнемдеуге арналған дайын жұмыс ағындары.
+- Толық құпиялылық: Барлық деректер 100% құрылғыңызда жергілікті өңделеді.
+
+SwAIft арқылы смартфоныңызды одан әрі ақылды етіңіз!"""),
+
+    # 55. Khmer
+    ("km-KH", "SwAIft: ស្វ័យប្រវត្តិកម្ម", "ស្វ័យប្រវត្តិកម្មភារកិច្ចប្រចាំថ្ងៃ, Wi-Fi, GPS និងថ្ម។",
+"""SwAIft គឺជាកម្មវិធីស្វ័យប្រវត្តិកម្ម Android ដ៏ឆ្លាតវៃដែលសម្រួលដល់ការងារប្រចាំថ្ងៃតាមទីតាំង GPS, Wi-Fi និងស្ថានភាពថ្ម។
+
+លក្ខណៈពិសេសចម្បង៖
+- ស្វ័យប្រវត្តិកម្មឆ្លាតវៃ៖ ដំណើរការសកម្មភាពផ្អែកលើទីតាំង GPS, Wi-Fi និងកម្រិតថ្ម។
+- កម្មវិធីត្រាប់តាមបរិស្ថាន៖ ធ្វើតេស្តផ្ទាល់មុនពេលបើកដំណើរការ។
+- គំរូស្រាប់ៗ៖ ស្វែងរកលំហូរការងារសម្រាប់ផលិតភាព និងការសន្សំសំចៃថាមពល។
+- ឯកជនភាពពេញលេញ៖ ទិន្នន័យទាំងអស់ត្រូវបានដំណើរការ 100% នៅលើឧបករណ៍របស់អ្នក។
+
+ធ្វើឱ្យបទពិសោធន៍ស្មាតហ្វូនរបស់អ្នកកាន់តែប្រសើរជាមួយ SwAIft!"""),
+
+    # 56. Lao
+    ("lo-LA", "SwAIft: ອັດຕະໂນມັດ", "ເຮັດວຽກປະຈໍາວັນ, Wi-Fi, ຕໍາແຫນ່ງ GPS ແລະແບັດເຕີຣີໂດຍອັດຕະໂນມັດ.",
+"""SwAIft ແມ່ນແອັບອັດຕະໂນມັດ Android ທີ່ສະຫຼາດ ເຊິ່ງຊ່ວຍໃຫ້ວຽກປະຈໍາວັນຂອງທ່ານງ່າຍขึ้น ຕາມ GPS, Wi-Fi ແລະ ແບັດເຕີຣີ.
+
+ຄຸນສົມບັດຫຼັກ:
+- ລະບົບອັດຕະໂນມັດສະຫຼາດ: ເລີ່ມການທໍາງານຕາມ GPS, Wi-Fi ແລະ ລະດັບແບັດເຕີຣີ.
+- ຕົວຈໍາລອງສະພາບແວດລ້ອມ: ທົດສອບກົດລະບຽບກ່ອນເປີດໃຊ້ງານ.
+- ເທັມເພຼັດພ້ອມໃຊ້: ຄົ້ນຫາຂັ້ນຕອນການເຮັດວຽກເພື່ອເພີ່ມປະສິດທິພາບ.
+- ຄວາມເປັນສ່ວນຕົວສົມບູນ: ຂໍ້ມູນທັງໝົດຖືກປະມວນຜົນ 100% ໃນອຸປະກອນຂອງທ່ານ.
+
+ປັບປຸງປະສົບການໃຊ້ງານສົມາດໂຟນຂອງທ່ານກັບ SwAIft ມື້ນີ້!"""),
+
+    # 57. Mongolian
+    ("mn-MN", "SwAIft: Ухаалаг Автоматжуулалт", "Өдөр тутмын даалгавар, Wi-Fi, GPS болон батарейг автоматжуулах.",
+"""SwAIft бол GPS байршил, Wi-Fi болон батарейны төлөвт үндэслэн өдөр тутмын даалгавруудыг хялбарчлах ухаалаг Android автоматжуулалтын апп юм.
+
+Үндсэн боломжууд:
+- Ухаалаг автоматжуулалт: GPS байршил, Wi-Fi болон батарейн түвшинд үндэслэн үйлдлийг эхлүүлэх.
+- Орчны симулятор: Идэвхжүүлэхийн өмнө дүрмүүдээ шууд турших.
+- Бэлэн загварууд: Бүтээмж болон батарей хэмнэлтийн бэлэн урсгалууд.
+- Бүрэн нууцлал: Бүх өгөгдөл 100% таны төхөөрөмж дээр локалаар боловсруулагдана.
+
+SwAIft-ийн тусламжтайгаар ухаалаг утсаа улам бүр хялбаржуулаарай!"""),
+
+    # 58. Burmese
+    ("my-MM", "SwAIft: စမတ် အလိုအလျောက်", "နေ့စဉ် လုပ်ဆောင်ချက်များ၊ Wi-Fi၊ GPS နှင့် ဘက်ထရီကို အလိုအလျောက် လုပ်ပါ။",
+"""SwAIft သည် GPS တည်နေရာ၊ Wi-Fi နှင့် ဘက်ထရီ အခြေအနေပေါ် မူတည်၍ နေ့စဉ် လုပ်ဆောင်ချက်များကို လွယ်ကူစေသော စမတ်ကျသော Android အလိုအလျောက် လုပ်ဆောင်ပေးသည့် အက်ပ်ဖြစ်ပါသည်။
+
+ပင်မ အင်္ဂါရပ်များ -
+- စမတ် အလိုအလျောက် နည်းလမ်းများ - GPS၊ Wi-Fi နှင့် ဘက်ထရီအလိုက် အလိုအလျောက် စတင်ပါ။
+- ပတ်ဝန်းကျင် စတူဒီယို - မစတင်မီ တိုက်ရိုက် စမ်းသပ်ပါ။
+- အဆင်သင့် ပုံစံများ - လုပ်ဆောင်ရည်နှင့် ဘက်ထရီ ချွေတာမှုအတွက် ပုံစံများကို ရှာဖွေပါ။
+- လုံခြုံရေး ပုဂ္ဂိုလ်ရေးဆိုင်ရာ - ဒေတာအားလုံးကို သင့်ဖုန်းအတွင်း၌သာ ၁၀၀% လုပ်ဆောင်ပါသည်။
+
+SwAIft ဖြင့် သင့်စမတ်ဖုန်း အတွေ့အကြုံကို မြှင့်တင်ပါ!"""),
+
+    # 59. Nepali
+    ("ne-NP", "SwAIft: स्मार्ट स्वचालित", "दैनिक कार्यहरू, Wi-Fi, GPS स्थान र ब्याट्री स्वचालित गर्नुहोस्।",
+"""SwAIft एक बुद्धिमानी एन्ड्रोइड स्वचालित एप हो जसले GPS स्थान, Wi-Fi र ब्याट्रीको आधारमा दैनिक कार्यहरू सरल बनाउँछ।
+
+मुख्य विशेषताहरू:
+- स्मार्ट स्वचालित नियमहरू: GPS स्थान, Wi-Fi र ब्याट्रीको आधारमा कार्यहरू सुरु गर्नुहोस्।
+- वातावरण सिमुलेटर: सक्रिय गर्नु अघि आफ्ना नियमहरू परीक्षण गर्नुहोस्।
+- तयार टेम्पलेटहरू: उत्पादकता र ब्याट्री बचतका लागि कार्यप्रवाहहरू खोज्नुहोस्।
+- पूर्ण गोपनीयता: सबै डेटा १००% तपाईंको उपकरणमा स्थानीय रूपमा प्रशोधन गरिन्छ।
+
+SwAIft को साथ आफ्नो स्मार्टफोन अनुभव सुधार गर्नुहोस्!"""),
+
+    # 60. Sinhala
+    ("si-LK", "SwAIft: ස්මාර්ට් ස්වයංක්‍රීය", "දෛනික කාර්යයන්, Wi-Fi, GPS ස්ථානය සහ බැටරිය ස්වයංක්‍රීය කරන්න.",
+"""SwAIft යනු GPS ස්ථානය, Wi-Fi සහ බැටරි තත්ත්වය මත පදනම්ව දෛනික කාර්යයන් සරල කරන ස්මාර්ට් ඇන්ඩ්‍රොයිඩ් ස්වයංක්‍රීය යෙදුමකි.
+
+ප්‍රධාන විශේෂාංග:
+- ස්මාර්ට් ස්වයංක්‍රීය රූටීන්: GPS, Wi-Fi සහ බැටරි මට්ටම මත පදනම්ව ක්‍රියා ආරම්භ කරන්න.
+- පරිසර සිමියුලේටරය: සක්‍රීය කිරීමට පෙර ඔබේ නීති පරීක්ෂා කරන්න.
+- සූදානම් සැකිලි: ඵලදායිතාව සහ බැටරි සුරැකීම සඳහා ක්‍රියාවලි සොයා ගන්න.
+- සම්පූර්ණ පෞද්ගලිකත්වය: සියලුම දත්ත 100% ක් ඔබගේ උපාංගයේම සකසනු ලැබේ.
+
+SwAIft සමඟ ඔබේ ස්මාර්ට්ෆෝන් අත්දැකීම වැඩිදියුණු කරගන්න!"""),
+
+    # 61. Albanian
+    ("sq", "SwAIft: Automatizim Smart", "Automatizoni detyrat ditore, Wi-Fi, vendndodhjen GPS dhe baterinë.",
+"""SwAIft është aplikacioni juaj inteligjent i automatizimit në Android, i projektuar për të thjeshtuar rutinat ditore bazuar në GPS, Wi-Fi dhe baterinë.
+
+Tiparet kryesore:
+- Rutina automatizimi inteligjente: Nisni veprime bazuar në GPS, Wi-Fi dhe nivelin e baterisë.
+- Simuluesi i mjedisit: Testoni rregullat tuaja përpara se t'i aktivizoni.
+- Stampa të gatshme: Zbuloni rrjedha pune për produktivitetin dhe kursimin e baterisë.
+- Privatësi e plotë: Të gjitha të dhënat aprioro përpunohen 100% lokalisht në pajisjen tuaj.
+
+Optimizoni përvojën tuaj me smartphone me SwAIft!"""),
+
+    # 62. Serbian
+    ("sr", "SwAIft: Паметна Автоматизација", "Аутоматизујте свакодневне задатке, Wi-Fi, GPS локацију и батерију.",
+"""SwAIft је ваша интелигентна апликација за автоматизацију за Android, дизајнирана да поједностави свакодневне рутине на основу GPS локације, Wi-Fi мрежа и батерије.
+
+Главне карактеристике:
+- Паметне рутине автоматизације: Покрените акције на основу GPS локације, Wi-Fi-ја и батерије.
+- Симулатор окружења: Тестирајте своја правила уживо пре активације.
+- Готови предлошци: Откријте токове рада за продуктивност и уштеду енергије.
+- Потпуна приватност: Сви подаци се обрађују 100% локално на вашем уређају.
+
+Побољшајте своје искуство на паметном телефону уз SwAIft!"""),
+
+    # 63. Uzbek
+    ("uz-UZ", "SwAIft: Aqlli Avtomatlashtirish", "Kundalik vazifalar, Wi-Fi, GPS va batareyani avtomatlashtiring.",
+"""SwAIft — bu GPS joylashuvi, Wi-Fi va batareya holatiga asoslangan kundalik vazifalarni soddalashtiruvchi aqlli Android avtomatlashtirish ilovasi.
+
+Asosiy xususiyatlari:
+- Aqlli avtomatlashtirish tartiblari: GPS, Wi-Fi va batareya darajasi bo'yicha harakatlarni boshlang.
+- Atrof-muhit simulyatori: Qoidalarni faollashtirishdan oldین jonli sinab ko'ring.
+- Tayyor shablonlar: Unumdorlik va batareyani tejash uchun ish oqimlarini kashf eting.
+- To'liq maxfiylik: Barcha ma'lumotlar 100% qurilmangizda mahaliy qayta ishlanadi.
+
+SwAIft bilan smartfoningiz imkoniyatlarini oshiring!"""),
+
+    # 64. Azerbaijani
+    ("az-AZ", "SwAIft: Ağıllı Avtomatlaşdırma", "Gündəlik tapşırıqları, Wi-Fi, GPS məkanını və batareyanı avtomatlaşdırın.",
+"""SwAIft — GPS məkanı, Wi-Fi şəbəkələri və batareya vəziyyətinə əsasən gündəlik tapşırıqları asanlaşdıran ağıllı Android avtomatlaşdırma tətbiqidir.
+
+Əsas xüsusiyyətlər:
+- Ağıllı avtomatlaşdırma qaydaları: GPS məkanı, Wi-Fi və batareya səviyyəsinə əsasən hərəkətləri başladın.
+- Ətraf mühit simulyatoru: Qaydalarınızı aktivləşdirmədən əvvəl canlı sınaqdan keçirin.
+- Hazır şablonlar: Məhsuldarlıq və batareya qənaəti üçün hazır iş axınlarını kəşf edin.
+- Tam məxfilik: Bütün məlumatlar 100% cihazınızda yerli olaraq emal olunur.
+
+SwAIft ilə smartfon təcrübənizi daha da təkmilləşdirin!"""),
+
+    # 65. Belarusian
+    ("be", "SwAIft: Разумная Аўтаматызацыя", "Аўтаматызацыя штодзённых задач, Wi-Fi, GPS і эканоміі батарэі.",
+"""SwAIft — гэта разумнае прыкладанне для аўтаматызацыі Android, створанае для аптымізацыі штодзённых задач на аснове GPS, Wi-Fi і стану батарэі.
+
+Асноўныя магчымасці:
+- Разумныя сцэнарыі аўтаматызацыі: Запуск дзеянняў па GPS-лакацыі, Wi-Fi і узроўні зараду.
+- Сімулятар асяроддзя: Жывое тэставанне правілаў перад іх актывацыяй.
+- Готовыя шаблоны: Сцэнарыі для прадукцыйнасці і энергазберажэння.
+- Поўная канфідэнцыяльнасць: Усе даныя апрацоўваюцца на 100% лакальна на вашай прыладзе.
+
+Зрабіце ваш смартфон разумнейшым разам з SwAIft!"""),
+
+    # 66. Bosnian
+    ("bs", "SwAIft: Pametna Automatizacija", "Automatizirajte svakodnevne zadatke, Wi-Fi, GPS lokaciju i bateriju.",
+"""SwAIft je vaša inteligentna aplikacija za automatizaciju Androida, dizajnirana za pojednostavljenje svakodnevnih rutina na osnovu GPS lokacije, Wi-Fi mreža i baterije.
+
+Glavne karakteristike:
+- Pametne rutine automatizacije: Pokrenite radnje na osnovu GPS lokacije, Wi-Fi-ja i nivoa baterije.
+- Simulator okruženja: Testirajte svoja pravila uživo prije aktivacije.
+- Gotovi predlošci: Otkrijte tokove rada za produktivnost i uštedu energije.
+- Potpuna privatnost: Svi podaci se obrađuju 100% lokalno na vašem uređaju.
+
+Poboljšajte svoje iskustvo na pametnom telefonu uz SwAIft!"""),
+
+    # 67. Catalan
+    ("ca", "SwAIft: Automatització Smart", "Automatitza les tasques diàries, Wi-Fi, ubicació GPS i bateria.",
+"""SwAIft és la teva aplicació intel·ligent d'automatització per a Android, dissenyada per simplificar les teves rutines diàries segons la ubicació GPS, Wi-Fi i la bateria.
+
+Característiques principals:
+- Rutines d'automatització intel·ligents: Activa accions segons ubicació GPS, Wi-Fi i bateria.
+- Simulador d'entorn: Prova les teves regles en directe abans d'activar-les.
+- Plantilles preparades: Descobreix fluxos de treball per a productivitat i estalvi d'energia.
+- Privacitat total: Totes les dades es processen 100% localment al teu dispositiu.
+
+Optimitza la teva experiència amb el telèfon gràcies a SwAIft!"""),
+
+    # 68. Basque
+    ("eu", "SwAIft: Automatizazio Älitsua", "Automatizatu eguneroko zereginak, Wi-Fi, GPS kokapena eta bateria.",
+"""SwAIft Android-erako automatizazio aplikazio adimentsua da, GPS kokapenean, Wi-Fian eta baterian oinarrituta eguneroko errutinak errazteko diseinatua.
+
+Ezaugarri nagusiak:
+- Automatizazio errutina adimentsuak: Aktibatu ekintzak GPS, Wi-Fi eta bateriaren arabera.
+- Ingurune simulatzailea: Probatu zure arauak zuzenean aktibatu aurretik.
+- Prest dauden txantiloiak: Ezagutu produktibitaterako eta energia aurrezteko lan-fluxuak.
+- Pribatutasun osoa: Datu guztiak % 100 tokian bertan prozesatzen dira zure gailuan.
+
+Hobetu zure smartphone esperientzia SwAIft-ekin!"""),
+
+    # 69. Galician
+    ("gl-ES", "SwAIft: Automatización Smart", "Automatiza as tarefas diarias, Wi-Fi, localización GPS e batería.",
+"""SwAIft é a túa aplicación intelixente de automatización para Android, deseñada para simplificar as túas rutinas diarias segundo a localización GPS, Wi-Fi e batería.
+
+Características principais:
+- Rutinas de automatización intelixentes: Activa accións segundo a localización GPS, Wi-Fi e batería.
+- Simulador de contorno: Proba as túas regras en directo antes de activalas.
+- Modelos preparados: Descobre fluxos de traballo para produtividade e aforro de enerxía.
+- Privacidade total: Todos os datos procésanse 100% localmente no teu dispositivo.
+
+Optimiza a túa experiencia no smartphone con SwAIft!"""),
+
+    # 70. Icelandic
+    ("is-IS", "SwAIft: Snjöll Sjálfvirkni", "Sjálfvirkjaðu daglega verkþætti, Wi-Fi, GPS staðsetningu og rafhlöðu.",
+"""SwAIft er snjalla Android sjálfvirkniforritið þitt sem einfaldar daglega verkþætti miðað við GPS staðsetningu, Wi-Fi og stöðu rafhlöðu.
+
+Helstu eiginleikar:
+- Snjallar sjálfvirknireglur: Rræstu aðgerðir miðað við GPS, Wi-Fi og stöðu rafhlöðu.
+- Umhverfishermir: Prófaðu reglurnar þínar í beinni áður en þær eru virkjaðar.
+- Tilbúin sniðmát: Uppgötvaðu vinnuferla fyrir framleiðni og rafhlöðusparnað.
+- Algert næði: Öll gögn eru unnin 100% staðbundið á tækinu þínu.
+
+Bættu upplifun þína af snjallsímanum með SwAIft!"""),
+
+    # 71. Macedonian
+    ("mk-MK", "SwAIft: Паметна Автоматизација", "Автоматизирајте ги секојдневните задачи, Wi-Fi, GPS и батеријата.",
+"""SwAIft е вашата интелигентна апликација за автоматизација на Android, дизајнирана да ги поедностави секојдневните рутини врз основа на GPS, Wi-Fi и батеријата.
+
+Главни карактеристики:
+- Паметни рутини за автоматизација: Стартувајте акции врз основа на GPS, Wi-Fi и ниво на батерија.
+- Симулатор на средината: Тестирајте ги вашите правила во живо пред активација.
+- Подготвени шаблони: Откријте работни процеси за продуктивност и заштеда на енергија.
+- Целосна приватност: Сите податоци се обработуваат 100% локално на вашиот уред.
+
+Подобрете го вашето искуство со паметен телефон со SwAIft!"""),
+
+    # 72. Punjabi
+    ("pa", "SwAIft: ਸਮਾਰਟ ਆਟੋਮੇਸ਼ਨ", "ਰੋਜ਼ਾਨਾ ਦੇ ਕੰਮਾਂ, వై-ਫਾਈ, GPS ਸਥਾਨ এবং ਬੈਟਰੀ ਨੂੰ ਆਟੋਮੇਟ ਕਰੋ।",
+"""SwAIft ਤੁਹਾਡੀ ਬੁੱਧੀਮਾਨ ਐਂਡਰੌਇਡ ਆਟੋਮੇਸ਼ਨ ਐਪ ਹੈ جو GPS ਸਥਾਨ, ਵਾਈ-ਫਾਈ ਅਤੇ ਬੈਟਰੀ ਦੀ ਸਥਿਤੀ ਦੇ ਆਧਾਰ 'ਤੇ ਰੋਜ਼ਾਨਾ ਦੇ ਕੰਮਾਂ ਨੂੰ ਆਸਾਨ ਬਣਾਉਂਦੀ ਹੈ।
+
+ਮੁੱਖ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ:
+- ਸਮਾਰਟ ਆਟੋਮੇਸ਼ਨ ਰੂਟੀਨ: GPS, ਵਾਈ-ਫਾਈ ਅਤੇ ਬੈਟਰੀ ਦੇ ਆਧਾਰ 'ਤੇ ਕਾਰਵਾਈਆਂ ਸ਼ੁਰੂ ਕਰੋ।
+- ਵਾਤਾਵਰਣ ਸਿਮੂਲੇਟਰ: ਸ 활성화 ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਆਪਣੇ ਨਿਯਮਾਂ ਦੀ ਲਾਈਵ ਜਾਂਚ ਕਰੋ।
+- ਤਿਆਰ ਟੈਂਪਲੇਟਸ: ਉਤਪਾਦਕਤਾ ਅਤੇ ਬੈਟਰੀ ਬਚਤ ਲਈ ਕਾਰਜਪ੍ਰਵਾਹ ਲੱਭੋ।
+- ਪੂਰੀ ਗੋਪਨੀਯਤਾ: ਸਾਰਾ ਡਾਟਾ 100% ਸਥਾਨਕ ਤੌਰ 'ਤੇ ਤੁਹਾਡੀ ਡਿਵਾਈਸ 'ਤੇ ಪ್ರੋਸੈਸ ਹੁੰਦਾ ਹੈ।
+
+SwAIft ਨਾਲ ਆਪਣੇ ਸਮਾਰਟਫੋਨ ਅਨੁਭਵ ਨੂੰ ਬਿਹਤਰ ਬਣਾਓ!"""),
+
+    # 73. Zulu
+    ("zu", "SwAIft: Ukuzenzakalela Okuhlakaniphile", "Auto amamodeli sansuku zonke, Wi-Fi, indawo ye-GPS kanye nebhethri.",
+"""SwAIft wuhlelo lwakho lokusebenza lwe-Android ukwenza izinto ngokuzenzakalelayo ngokusekelwe endaweni ye-GPS, Wi-Fi kanye nesimo sebhethri.
+
+Izici Eziyinhloko:
+- Ukwenza Ngokuzenzakalelayo Okuhlakaniphile: Qala izenzo kususelwa ku-GPS, Wi-Fi nasebhethrini.
+- I-Simulator Yendawo: Hlola imithetho yakho ngaphambi kokuyisebenzisa.
+- Amamodeli Alungele: Thola ukuhamba komsebenzi kokukhiqiza nokonga amandla.
+- Inqubomgomo Yobumfihlo: Yonke imininingwane isetshenziswa 100% kudivayisi yakho.
+
+Thuthukisa okuhlangenwe nakho kwakho smartphone nge SwAIft!""")
 ]
 
-# Additional fallback entry loop for rest of supported languages to guarantee complete 71 languages coverage
-additional_langs = [
-    "af", "am", "ar", "az", "be", "bg", "bn", "bs", "ca", "cs",
-    "da", "el", "et", "eu", "fa", "fi", "fil", "gl", "gu", "hi",
-    "hr", "hu", "hy", "in", "is", "iw", "ka", "kk", "km", "kn",
-    "ky", "lo", "lt", "lv", "mk", "ml", "mn", "mr", "ms", "my",
-    "nb", "ne", "nl", "pa", "pl", "ro", "si", "sk", "sl", "sq",
-    "sr", "sv", "sw", "ta", "te", "th", "tr", "uk", "ur", "uz", "zu"
-]
-
-existing_lang_codes = set(l[0] for l in listings)
-
-for lang in additional_langs:
-    if lang not in existing_lang_codes:
-        listings.append((
-            lang,
-            "SwAIft: Smart Automation",
-            "Automate daily phone tasks, Wi-Fi, location geofence & battery routines.",
-            """SwAIft is your intelligent, privacy-first Android automation app designed to streamline your daily routines based on environment conditions, location, Wi-Fi networks, and device status.
-
-Key Features:
-- Intelligent Automation Routines: Trigger actions based on GPS location, Wi-Fi SSID, battery levels, app open context, and motion activity.
-- Environment Simulator: Live test your custom flows with a built-in environment drawer before activating them.
-- Pre-built Flow Templates: Discover popular automation flows for productivity, smart home, battery saving, and daily health routines.
-- Complete Privacy: All routines and rules are processed locally on your device. No registration or cloud login required.
-- Modern & Sleek Interface: Designed with Google Material 3 guidelines featuring smooth animations and dark mode support.
-
-Optimize your daily smartphone experience with SwAIft!"""
-        ))
-
-# Verify length constraints strictly
+# Verify length constraints strictly according to Google Play Console specifications
 validated_rows = []
 for lang, title, short_desc, full_desc in listings:
     assert len(title) <= 30, f"Title length exceeded in {lang}: {len(title)} chars (max 30)"
@@ -192,4 +895,4 @@ with open(csv_file_path, "w", newline="", encoding="utf-8") as f:
     writer.writerow(["Language", "Title", "Short Description", "Full Description"])
     writer.writerows(validated_rows)
 
-print(f"✅ Successfully generated {csv_file_path} with {len(validated_rows)} validated language entries!")
+print(f"🎉 Successfully generated {csv_file_path} with {len(validated_rows)} fully translated language entries!")
