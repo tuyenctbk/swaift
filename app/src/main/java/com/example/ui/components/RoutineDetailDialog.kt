@@ -45,9 +45,10 @@ import androidx.compose.ui.window.Dialog
 import com.example.data.FlowEntity
 import com.example.data.JsonUtils
 
-import androidx.compose.material.icons.filled.History
 import androidx.compose.ui.hapticfeedback.HapticFeedbackType
 import androidx.compose.ui.platform.LocalHapticFeedback
+import androidx.compose.ui.res.stringResource
+import com.example.R
 import com.example.data.HistoryLogEntity
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -154,7 +155,12 @@ fun RoutineDetailDialog(
                         horizontalArrangement = Arrangement.SpaceBetween,
                         verticalAlignment = Alignment.CenterVertically
                     ) {
-                        Row(verticalAlignment = Alignment.CenterVertically) {
+                        Row(
+                            modifier = Modifier
+                                .weight(1f)
+                                .padding(end = 8.dp),
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
                             Box(
                                 modifier = Modifier
                                     .size(10.dp)
@@ -163,8 +169,10 @@ fun RoutineDetailDialog(
                             )
                             Spacer(modifier = Modifier.width(8.dp))
                             Text(
-                                text = if (flow.isEnabled) "Status: Active & Monitoring" else "Status: Disabled",
-                                style = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.SemiBold)
+                                text = if (flow.isEnabled) stringResource(R.string.status_active_monitoring) else stringResource(R.string.status_disabled),
+                                style = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.SemiBold),
+                                maxLines = 1,
+                                overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis
                             )
                         }
                         Switch(

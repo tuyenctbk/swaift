@@ -147,7 +147,7 @@
     <string name="content_desc_clear">Clear</string>
     <string name="content_desc_run">Run now</string>
     <string name="content_desc_toggle">Toggle</string>
-    <string name="loading">Loading…</string>
-    <string name="no_results">No results found</string>
+    <string name="status_active_monitoring">Status: Active &amp; Monitoring</string>
+    <string name="status_disabled">Status: Disabled</string>
 </resources>
 
