@@ -571,8 +571,8 @@ fun HeroStatusBanner(
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = 16.dp, vertical = 8.dp)
-            .clip(RoundedCornerShape(28.dp))
+            .padding(horizontal = 16.dp, vertical = 6.dp)
+            .clip(RoundedCornerShape(22.dp))
             .testTag("hero_status_banner"),
         colors = CardDefaults.cardColors(
             containerColor = Color.Unspecified
@@ -589,7 +589,7 @@ fun HeroStatusBanner(
                         )
                     )
                 )
-                .padding(20.dp)
+                .padding(14.dp)
         ) {
             Column {
                 Row(
@@ -603,7 +603,7 @@ fun HeroStatusBanner(
                     ) {
                         Box(
                             modifier = Modifier
-                                .size(36.dp)
+                                .size(34.dp)
                                 .clip(CircleShape)
                                 .background(MaterialTheme.colorScheme.primary.copy(alpha = 0.2f)),
                             contentAlignment = Alignment.Center
@@ -612,10 +612,10 @@ fun HeroStatusBanner(
                                 imageVector = Icons.Default.AutoMode,
                                 contentDescription = null,
                                 tint = MaterialTheme.colorScheme.primary,
-                                modifier = Modifier.size(20.dp)
+                                modifier = Modifier.size(18.dp)
                             )
                         }
-                        Spacer(modifier = Modifier.width(12.dp))
+                        Spacer(modifier = Modifier.width(10.dp))
                         Column {
                             Text(
                                 text = "SwAIft Active",
@@ -644,7 +644,7 @@ fun HeroStatusBanner(
                     }
                 }
 
-                Spacer(modifier = Modifier.height(14.dp))
+                Spacer(modifier = Modifier.height(10.dp))
 
                 // Simulated context live pill
                 val displayWifi = if (environment.wifiSsid.length > 12) environment.wifiSsid.take(10) + "…" else environment.wifiSsid

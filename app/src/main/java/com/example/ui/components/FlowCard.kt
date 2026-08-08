@@ -175,7 +175,7 @@ fun FlowCard(
         modifier = modifier
             .fillMaxWidth()
             .scale(scale * successScale)
-            .clip(RoundedCornerShape(24.dp))
+            .clip(RoundedCornerShape(20.dp))
             .clickable {
                 if (isSelectionMode) {
                     onSelectToggle()
@@ -194,12 +194,12 @@ fun FlowCard(
             }
         ),
         border = cardBorder,
-        shape = RoundedCornerShape(24.dp)
+        shape = RoundedCornerShape(20.dp)
     ) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(20.dp)
+                .padding(14.dp)
         ) {
             Row(
                 modifier = Modifier.fillMaxWidth(),
@@ -212,13 +212,13 @@ fun FlowCard(
                         onCheckedChange = { onSelectToggle() },
                         modifier = Modifier.testTag("select_checkbox_${flow.id}")
                     )
-                    Spacer(modifier = Modifier.width(8.dp))
+                    Spacer(modifier = Modifier.width(6.dp))
                 }
 
                 // Icon badge
                 Box(
                     modifier = Modifier
-                        .size(48.dp)
+                        .size(42.dp)
                         .clip(CircleShape)
                         .background(themeColor.copy(alpha = 0.25f)),
                     contentAlignment = Alignment.Center
@@ -227,11 +227,11 @@ fun FlowCard(
                         imageVector = getFlowIconVector(flow.iconName),
                         contentDescription = flow.title,
                         tint = themeColor,
-                        modifier = Modifier.size(26.dp)
+                        modifier = Modifier.size(22.dp)
                     )
                 }
 
-                Spacer(modifier = Modifier.width(16.dp))
+                Spacer(modifier = Modifier.width(12.dp))
 
                 Column(modifier = Modifier.weight(1f)) {
                     Text(
@@ -295,11 +295,11 @@ fun FlowCard(
                 }
             }
 
-            Spacer(modifier = Modifier.height(10.dp))
+            Spacer(modifier = Modifier.height(6.dp))
 
             Text(
                 text = flow.description,
-                style = MaterialTheme.typography.bodyMedium,
+                style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                 maxLines = 2,
                 overflow = TextOverflow.Ellipsis
@@ -307,7 +307,7 @@ fun FlowCard(
 
             // Tags pills row
             if (flow.tags.isNotBlank()) {
-                Spacer(modifier = Modifier.height(8.dp))
+                Spacer(modifier = Modifier.height(6.dp))
                 FlowRow(
                     horizontalArrangement = Arrangement.spacedBy(6.dp),
                     verticalArrangement = Arrangement.spacedBy(4.dp)
@@ -328,7 +328,7 @@ fun FlowCard(
                 }
             }
 
-            Spacer(modifier = Modifier.height(12.dp))
+            Spacer(modifier = Modifier.height(8.dp))
 
             // Action Pills summary
             val actionConfig = JsonUtils.deserializeAction(flow.actionConfigJson)
@@ -337,20 +337,20 @@ fun FlowCard(
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .clip(RoundedCornerShape(12.dp))
+                    .clip(RoundedCornerShape(10.dp))
                     .background(MaterialTheme.colorScheme.surface.copy(alpha = 0.7f))
-                    .border(1.dp, themeColor.copy(alpha = 0.2f), RoundedCornerShape(12.dp))
-                    .padding(10.dp)
+                    .border(1.dp, themeColor.copy(alpha = 0.2f), RoundedCornerShape(10.dp))
+                    .padding(horizontal = 8.dp, vertical = 6.dp)
             ) {
                 Text(
                     text = "⚡ $actionSummary",
-                    style = MaterialTheme.typography.bodySmall.copy(fontSize = 12.sp),
+                    style = MaterialTheme.typography.bodySmall.copy(fontSize = 11.sp),
                     color = MaterialTheme.colorScheme.onSurface
                 )
             }
 
             if (!isTemplate) {
-                Spacer(modifier = Modifier.height(12.dp))
+                Spacer(modifier = Modifier.height(8.dp))
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceBetween,
