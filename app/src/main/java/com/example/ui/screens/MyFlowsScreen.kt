@@ -633,11 +633,12 @@ fun HeroStatusBanner(
                     Button(
                         onClick = onOpenAiDialog,
                         shape = RoundedCornerShape(12.dp),
+                        contentPadding = PaddingValues(horizontal = 12.dp, vertical = 6.dp),
                         modifier = Modifier.testTag("open_ai_assistant_btn")
                     ) {
                         Icon(imageVector = Icons.Default.AutoAwesome, contentDescription = null, modifier = Modifier.size(16.dp))
                         Spacer(modifier = Modifier.width(4.dp))
-                        Text("AI Create", style = MaterialTheme.typography.labelMedium)
+                        Text("AI Create", style = MaterialTheme.typography.labelMedium, maxLines = 1)
                     }
                 }
 
@@ -663,11 +664,12 @@ fun HeroStatusBanner(
                     FilledTonalButton(
                         onClick = onOpenSimulator,
                         shape = RoundedCornerShape(12.dp),
+                        contentPadding = PaddingValues(horizontal = 10.dp, vertical = 6.dp),
                         modifier = Modifier.testTag("open_simulator_btn")
                     ) {
                         Icon(imageVector = Icons.Default.Tune, contentDescription = null, modifier = Modifier.size(16.dp))
                         Spacer(modifier = Modifier.width(4.dp))
-                        Text("Simulate", style = MaterialTheme.typography.labelMedium)
+                        Text("Simulate", style = MaterialTheme.typography.labelMedium, maxLines = 1)
                     }
                 }
             }
