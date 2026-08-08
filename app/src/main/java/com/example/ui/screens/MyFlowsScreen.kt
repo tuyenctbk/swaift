@@ -279,7 +279,7 @@ fun MyFlowsScreen(
                                     onSearchQueryChanged(it)
                                     if (it.isNotBlank()) onAddRecentSearch(it)
                                 },
-                                placeholder = { Text("Search by name, category, or trigger...") },
+                                placeholder = { Text("Search routines...", maxLines = 1, overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis) },
                                 leadingIcon = { Icon(Icons.Default.Search, contentDescription = "Search") },
                                 trailingIcon = {
                                     if (searchQuery.isNotEmpty()) {

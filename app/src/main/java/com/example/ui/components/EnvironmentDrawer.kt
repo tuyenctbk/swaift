@@ -43,6 +43,10 @@ import androidx.compose.ui.res.stringResource
 import com.example.R
 import com.example.engine.SimulatedEnvironment
 
+import androidx.compose.foundation.horizontalScroll
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.ui.text.style.TextOverflow
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun EnvironmentDrawer(
@@ -66,7 +70,7 @@ fun EnvironmentDrawer(
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 24.dp)
+                .padding(horizontal = 20.dp)
                 .padding(bottom = 32.dp)
         ) {
             Row(
@@ -74,19 +78,25 @@ fun EnvironmentDrawer(
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Column {
+                Column(modifier = Modifier.weight(1f)) {
                     Text(
                         text = "📱 ${stringResource(R.string.env_conditions_title)}",
-                        style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold)
+                        style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold),
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis
                     )
+                    Spacer(modifier = Modifier.height(2.dp))
                     Text(
                         text = "Simulate real-world conditions to test your flows live",
                         style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis
                     )
                 }
+                Spacer(modifier = Modifier.width(8.dp))
                 TextButton(onClick = onDismiss) {
-                    Text(stringResource(R.string.done))
+                    Text(stringResource(R.string.done), maxLines = 1)
                 }
             }
 
@@ -95,12 +105,17 @@ fun EnvironmentDrawer(
             // Location
             Text("📍 ${stringResource(R.string.env_gps_location)}", style = MaterialTheme.typography.labelMedium, fontWeight = FontWeight.SemiBold)
             Spacer(modifier = Modifier.height(4.dp))
-            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .horizontalScroll(rememberScrollState()),
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
                 listOf("Home", "Office", "Fitness Center", "Downtown").forEach { loc ->
                     val isSelected = environment.locationLabel.equals(loc, ignoreCase = true)
                     AssistChip(
                         onClick = { onUpdateLocation(loc) },
-                        label = { Text(loc) },
+                        label = { Text(loc, maxLines = 1) },
                         leadingIcon = { Icon(Icons.Default.LocationOn, contentDescription = null, modifier = Modifier.size(16.dp)) },
                         modifier = Modifier.testTag("sim_loc_$loc")
                     )
@@ -112,11 +127,16 @@ fun EnvironmentDrawer(
             // Wi-Fi Connection
             Text("📶 ${stringResource(R.string.env_wifi_ssid)}", style = MaterialTheme.typography.labelMedium, fontWeight = FontWeight.SemiBold)
             Spacer(modifier = Modifier.height(4.dp))
-            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .horizontalScroll(rememberScrollState()),
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
                 listOf("Home-WiFi-5G", "Office-Corporate-WiFi", "Disconnected").forEach { wifi ->
                     AssistChip(
                         onClick = { onUpdateWifi(wifi) },
-                        label = { Text(if (wifi == "Disconnected") stringResource(R.string.status_none) else wifi) },
+                        label = { Text(if (wifi == "Disconnected") stringResource(R.string.status_none) else wifi, maxLines = 1) },
                         leadingIcon = { Icon(Icons.Default.Wifi, contentDescription = null, modifier = Modifier.size(16.dp)) },
                         modifier = Modifier.testTag("sim_wifi_$wifi")
                     )
@@ -159,11 +179,16 @@ fun EnvironmentDrawer(
             // App Open Context
             Text("📲 ${stringResource(R.string.env_open_app_context)}", style = MaterialTheme.typography.labelMedium, fontWeight = FontWeight.SemiBold)
             Spacer(modifier = Modifier.height(4.dp))
-            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .horizontalScroll(rememberScrollState()),
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
                 listOf("Home Screen", "YouTube", "Maps", "Spotify").forEach { appName ->
                     AssistChip(
                         onClick = { onUpdateApp(appName) },
-                        label = { Text(appName) },
+                        label = { Text(appName, maxLines = 1) },
                         leadingIcon = { Icon(Icons.Default.PhoneAndroid, contentDescription = null, modifier = Modifier.size(16.dp)) },
                         modifier = Modifier.testTag("sim_app_$appName")
                     )
@@ -175,11 +200,16 @@ fun EnvironmentDrawer(
             // Activity Recognition
             Text("🚶 ${stringResource(R.string.env_activity_motion)}", style = MaterialTheme.typography.labelMedium, fontWeight = FontWeight.SemiBold)
             Spacer(modifier = Modifier.height(4.dp))
-            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .horizontalScroll(rememberScrollState()),
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
                 listOf("Stationary", "Walking", "Driving").forEach { activity ->
                     AssistChip(
                         onClick = { onUpdateActivity(activity) },
-                        label = { Text(activity) },
+                        label = { Text(activity, maxLines = 1) },
                         leadingIcon = { Icon(Icons.Default.DirectionsCar, contentDescription = null, modifier = Modifier.size(16.dp)) },
                         modifier = Modifier.testTag("sim_act_$activity")
                     )
@@ -191,11 +221,16 @@ fun EnvironmentDrawer(
             // Time of day
             Text("⏰ ${stringResource(R.string.env_time_schedule)}", style = MaterialTheme.typography.labelMedium, fontWeight = FontWeight.SemiBold)
             Spacer(modifier = Modifier.height(4.dp))
-            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .horizontalScroll(rememberScrollState()),
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
                 listOf("08:00", "14:30", "20:00", "23:15").forEach { timeStr ->
                     AssistChip(
                         onClick = { onUpdateTime(timeStr) },
-                        label = { Text(timeStr) },
+                        label = { Text(timeStr, maxLines = 1) },
                         leadingIcon = { Icon(Icons.Default.Schedule, contentDescription = null, modifier = Modifier.size(16.dp)) },
                         modifier = Modifier.testTag("sim_time_$timeStr")
                     )

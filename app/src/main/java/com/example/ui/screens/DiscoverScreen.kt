@@ -129,7 +129,7 @@ fun DiscoverScreen(
                     onSearchQueryChanged(it)
                     if (it.isNotBlank()) onAddRecentSearch(it)
                 },
-                placeholder = { Text("Search routine gallery...") },
+                placeholder = { Text("Search routine gallery...", maxLines = 1, overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis) },
                 leadingIcon = { Icon(Icons.Default.Search, contentDescription = "Search") },
                 trailingIcon = {
                     if (searchQuery.isNotEmpty()) {
