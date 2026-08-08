@@ -12,7 +12,7 @@ class SmartAppRatingManager(context: Context) {
         private const val KEY_HAS_RATED = "key_has_rated"
         private const val KEY_HAS_SHARED = "key_has_shared"
         private const val KEY_LAST_PROMPT_TIMESTAMP = "key_last_prompt_timestamp"
-        private const val PROMPT_COOLDOWN_MS = 24 * 60 * 60 * 1000L // 24 hours cooldown between prompts
+        private const val PROMPT_COOLDOWN_MS = 3 * 24 * 60 * 60 * 1000L // 3 days cooldown between prompts
     }
 
     fun recordExecution() {
@@ -20,7 +20,7 @@ class SmartAppRatingManager(context: Context) {
         prefs.edit().putInt(KEY_EXECUTION_COUNT, count).apply()
     }
 
-    fun shouldShowEngagementPrompt(activeFlowsCount: Int): SmartPromptType? {
+    fun shouldShowEngagementPrompt(): SmartPromptType? {
         val hasRated = prefs.getBoolean(KEY_HAS_RATED, false)
         val hasShared = prefs.getBoolean(KEY_HAS_SHARED, false)
         val executionCount = prefs.getInt(KEY_EXECUTION_COUNT, 0)
@@ -31,16 +31,14 @@ class SmartAppRatingManager(context: Context) {
             return null
         }
 
-        // Smart Calculation 1: Rate 5 Stars Prompt
-        // Ideal timing: User has executed flows >= 5 times OR created >= 3 active flows
-        if (!hasRated && (executionCount >= 5 || activeFlowsCount >= 3)) {
+        // Rate 5 Stars Prompt: Only after user has actively executed routines 15+ times
+        if (!hasRated && executionCount >= 15) {
             prefs.edit().putLong(KEY_LAST_PROMPT_TIMESTAMP, currentTime).apply()
             return SmartPromptType.RATE_APP
         }
 
-        // Smart Calculation 2: Share App Prompt
-        // Ideal timing: User has executed flows >= 3 times OR has >= 2 active flows
-        if (!hasShared && (executionCount >= 3 || activeFlowsCount >= 2)) {
+        // Share App Prompt: Only after user has actively executed routines 10+ times
+        if (!hasShared && executionCount >= 10) {
             prefs.edit().putLong(KEY_LAST_PROMPT_TIMESTAMP, currentTime).apply()
             return SmartPromptType.SHARE_APP
         }

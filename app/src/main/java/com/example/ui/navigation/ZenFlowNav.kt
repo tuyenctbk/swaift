@@ -414,10 +414,9 @@ fun ZenFlowNav(
     val ratingManager = remember { com.example.engine.SmartAppRatingManager(context) }
     var activeSmartPrompt by remember { mutableStateOf<com.example.ui.components.SmartPromptType?>(null) }
 
-    androidx.compose.runtime.LaunchedEffect(userFlows.size, historyLogs.size) {
-        if (activeSmartPrompt == null) {
-            val activeCount = userFlows.count { it.isEnabled }
-            activeSmartPrompt = ratingManager.shouldShowEngagementPrompt(activeCount)
+    androidx.compose.runtime.LaunchedEffect(historyLogs.size) {
+        if (activeSmartPrompt == null && historyLogs.isNotEmpty()) {
+            activeSmartPrompt = ratingManager.shouldShowEngagementPrompt()
         }
     }
 
