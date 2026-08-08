@@ -28,12 +28,8 @@ class MainActivity : ComponentActivity() {
       }
     }
 
-    try {
-      com.example.engine.EnvironmentSimulator.syncWithRealDevice(this)
-      com.example.service.AutomationForegroundService.startService(this)
-    } catch (e: Exception) {
-      e.printStackTrace()
-    }
+    startAutomationService()
+
     setContent {
       val mainViewModel: ZenFlowViewModel = viewModel()
       val themeMode by mainViewModel.themeMode.collectAsStateWithLifecycle()
@@ -52,6 +48,31 @@ class MainActivity : ComponentActivity() {
           ZenFlowNav(viewModel = mainViewModel)
         }
       }
+    }
+  }
+
+  override fun onResume() {
+    super.onResume()
+    startAutomationService()
+  }
+
+  override fun onRequestPermissionsResult(
+    requestCode: Int,
+    permissions: Array<out String>,
+    grantResults: IntArray
+  ) {
+    super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+    if (requestCode == 101 && grantResults.isNotEmpty() && grantResults[0] == android.content.pm.PackageManager.PERMISSION_GRANTED) {
+      startAutomationService()
+    }
+  }
+
+  private fun startAutomationService() {
+    try {
+      com.example.engine.EnvironmentSimulator.syncWithRealDevice(this)
+      com.example.service.AutomationForegroundService.startService(this)
+    } catch (e: Exception) {
+      e.printStackTrace()
     }
   }
 }

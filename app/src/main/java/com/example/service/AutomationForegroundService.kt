@@ -37,21 +37,7 @@ class AutomationForegroundService : Service() {
     override fun onCreate() {
         super.onCreate()
         createNotificationChannel()
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
-            startForeground(
-                NOTIFICATION_ID,
-                buildNotification("SwAIft Background Engine active"),
-                android.content.pm.ServiceInfo.FOREGROUND_SERVICE_TYPE_SPECIAL_USE
-            )
-        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            startForeground(
-                NOTIFICATION_ID,
-                buildNotification("SwAIft Background Engine active"),
-                0
-            )
-        } else {
-            startForeground(NOTIFICATION_ID, buildNotification("SwAIft Background Engine active"))
-        }
+        startForegroundServiceInternal()
         startScheduledRoutineLoop()
     }
 
@@ -62,7 +48,26 @@ class AutomationForegroundService : Service() {
             stopSelf()
             return START_NOT_STICKY
         }
+        createNotificationChannel()
+        startForegroundServiceInternal()
         return START_STICKY
+    }
+
+    private fun startForegroundServiceInternal() {
+        try {
+            val notification = buildNotification("SwAIft Background Engine active")
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+                startForeground(
+                    NOTIFICATION_ID,
+                    notification,
+                    android.content.pm.ServiceInfo.FOREGROUND_SERVICE_TYPE_SPECIAL_USE
+                )
+            } else {
+                startForeground(NOTIFICATION_ID, notification)
+            }
+        } catch (e: Exception) {
+            android.util.Log.e("AutomationForegroundService", "Error starting foreground service", e)
+        }
     }
 
     private fun startScheduledRoutineLoop() {
@@ -159,7 +164,7 @@ class AutomationForegroundService : Service() {
     private fun buildNotification(text: String) = NotificationCompat.Builder(this, CHANNEL_ID)
         .setContentTitle("⚡ SwAIft Active")
         .setContentText(text)
-        .setSmallIcon(android.R.drawable.ic_lock_idle_alarm)
+        .setSmallIcon(com.example.R.mipmap.ic_launcher)
         .setOngoing(true)
         .setContentIntent(
             PendingIntent.getActivity(
