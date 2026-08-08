@@ -280,6 +280,9 @@ fun ZenFlowNav(
                             onToggleTemplate = { template, enable ->
                                 viewModel.toggleTemplate(template, enable)
                             },
+                            onRunTemplate = { template ->
+                                viewModel.runTemplateManually(template)
+                            },
                             onEditTemplate = { template ->
                                 editingFlowTarget = template
                                 isEditingFlow = true

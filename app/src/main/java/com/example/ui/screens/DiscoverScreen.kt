@@ -53,6 +53,7 @@ fun DiscoverScreen(
     onCategorySelected: (String) -> Unit,
     onSearchQueryChanged: (String) -> Unit,
     onToggleTemplate: (FlowEntity, Boolean) -> Unit,
+    onRunTemplate: (FlowEntity) -> Unit = {},
     onEditTemplate: (FlowEntity) -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -201,7 +202,7 @@ fun DiscoverScreen(
                 FlowCard(
                     flow = template.copy(isEnabled = isEnabled, id = matchingUserFlow?.id ?: template.id),
                     onToggle = { onToggleTemplate(template, !isEnabled) },
-                    onRunNow = {},
+                    onRunNow = { onRunTemplate(template) },
                     onDelete = {},
                     onClick = { onEditTemplate(template) },
                     isTemplate = false,
@@ -224,7 +225,7 @@ fun DiscoverScreen(
                             FlowCard(
                                 flow = template.copy(isEnabled = isEnabled, id = matchingUserFlow?.id ?: template.id),
                                 onToggle = { onToggleTemplate(template, !isEnabled) },
-                                onRunNow = {},
+                                onRunNow = { onRunTemplate(template) },
                                 onDelete = {},
                                 onClick = { onEditTemplate(template) },
                                 isTemplate = false,

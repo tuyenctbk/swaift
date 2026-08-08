@@ -393,6 +393,23 @@ class ZenFlowViewModel(application: Application) : AndroidViewModel(application)
         }
     }
 
+    fun runTemplateManually(template: FlowEntity) {
+        viewModelScope.launch {
+            var target = userFlows.value.find { it.title.equals(template.title, ignoreCase = true) }
+            if (target == null) {
+                target = template.copy(
+                    id = UUID.randomUUID().toString(),
+                    isEnabled = true,
+                    isTemplate = false,
+                    lastRunTimeMillis = null,
+                    runCount = 0
+                )
+                repository.insertFlow(target)
+            }
+            runFlowManually(target)
+        }
+    }
+
     fun saveFlow(
         id: String?,
         title: String,

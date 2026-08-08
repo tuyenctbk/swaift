@@ -425,26 +425,41 @@ fun FlowCard(
                                     }
                                 },
                                 shape = CircleShape,
-                                color = if (isExecuting) themeColor.copy(alpha = 0.8f) else themeColor,
+                                color = when {
+                                    isExecuting -> themeColor.copy(alpha = 0.8f)
+                                    triggerCompletedSignal -> Color(0xFF10B981)
+                                    else -> themeColor
+                                },
                                 shadowElevation = 4.dp,
                                 modifier = Modifier
                                     .size(40.dp)
                                     .testTag("run_now_btn_${flow.id}")
                             ) {
                                 Box(contentAlignment = Alignment.Center) {
-                                    if (isExecuting) {
-                                        CircularProgressIndicator(
-                                            modifier = Modifier.size(20.dp),
-                                            color = Color.White,
-                                            strokeWidth = 2.5.dp
-                                        )
-                                    } else {
-                                        Icon(
-                                            imageVector = Icons.Default.PlayArrow,
-                                            contentDescription = "Test Trigger Routine Now",
-                                            tint = Color.White,
-                                            modifier = Modifier.size(22.dp)
-                                        )
+                                    when {
+                                        isExecuting -> {
+                                            CircularProgressIndicator(
+                                                modifier = Modifier.size(20.dp),
+                                                color = Color.White,
+                                                strokeWidth = 2.5.dp
+                                            )
+                                        }
+                                        triggerCompletedSignal -> {
+                                            Icon(
+                                                imageVector = Icons.Default.Check,
+                                                contentDescription = "Trigger Completed Successfully",
+                                                tint = Color.White,
+                                                modifier = Modifier.size(22.dp)
+                                            )
+                                        }
+                                        else -> {
+                                            Icon(
+                                                imageVector = Icons.Default.PlayArrow,
+                                                contentDescription = "Test Trigger Routine Now",
+                                                tint = Color.White,
+                                                modifier = Modifier.size(22.dp)
+                                            )
+                                        }
                                     }
                                 }
                             }

@@ -428,6 +428,7 @@ fun MyFlowsScreen(
                             }
                         )
 
+                        val isExecuting = executingFlowIds.contains(flow.id)
                         SwipeToDismissBox(
                             state = dismissState,
                             enableDismissFromStartToEnd = false,
@@ -472,6 +473,7 @@ fun MyFlowsScreen(
                                     }
                                 },
                                 lastStatus = lastStatus,
+                                isExecuting = isExecuting,
                                 isSelectionMode = isSelectionMode,
                                 isSelected = isSelected,
                                 onSelectToggle = {
@@ -494,6 +496,7 @@ fun MyFlowsScreen(
                                 Box(modifier = Modifier.weight(1f)) {
                                     val isSelected = selectedFlowIds.contains(flow.id)
                                     val lastStatus = lastStatusMap[flow.id]
+                                    val isExecuting = executingFlowIds.contains(flow.id)
                                     FlowCard(
                                         flow = flow,
                                         onToggle = { onToggleFlow(flow) },
@@ -507,6 +510,7 @@ fun MyFlowsScreen(
                                             }
                                         },
                                         lastStatus = lastStatus,
+                                        isExecuting = isExecuting,
                                         isSelectionMode = isSelectionMode,
                                         isSelected = isSelected,
                                         onSelectToggle = {
