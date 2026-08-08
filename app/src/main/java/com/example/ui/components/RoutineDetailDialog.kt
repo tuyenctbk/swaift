@@ -88,7 +88,7 @@ fun RoutineDetailDialog(
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceBetween,
-                    verticalAlignment = Alignment.CenterVertically
+                    verticalAlignment = Alignment.Top
                 ) {
                     Row(
                         modifier = Modifier.weight(1f),
@@ -96,7 +96,7 @@ fun RoutineDetailDialog(
                     ) {
                         Box(
                             modifier = Modifier
-                                .size(44.dp)
+                                .size(40.dp)
                                 .clip(CircleShape)
                                 .background(parseColorHex(flow.colorHex).copy(alpha = 0.2f)),
                             contentAlignment = Alignment.Center
@@ -105,26 +105,36 @@ fun RoutineDetailDialog(
                                 imageVector = getFlowIconVector(flow.iconName),
                                 contentDescription = null,
                                 tint = parseColorHex(flow.colorHex),
-                                modifier = Modifier.size(24.dp)
+                                modifier = Modifier.size(22.dp)
                             )
                         }
-                        Spacer(modifier = Modifier.width(12.dp))
-                        Column {
+                        Spacer(modifier = Modifier.width(10.dp))
+                        Column(modifier = Modifier.weight(1f)) {
                             Text(
                                 text = flow.title,
                                 style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold),
-                                maxLines = 1
+                                maxLines = 1,
+                                overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis
                             )
                             Text(
                                 text = "${flow.category} • Trigger: ${flow.triggerType.displayName}",
                                 style = MaterialTheme.typography.labelMedium,
-                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                maxLines = 1,
+                                overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis
                             )
                         }
                     }
 
-                    IconButton(onClick = onDismiss, modifier = Modifier.testTag("close_detail_dialog")) {
-                        Icon(imageVector = Icons.Default.Close, contentDescription = "Close")
+                    Spacer(modifier = Modifier.width(6.dp))
+
+                    IconButton(
+                        onClick = onDismiss,
+                        modifier = Modifier
+                            .size(32.dp)
+                            .testTag("close_detail_dialog")
+                    ) {
+                        Icon(imageVector = Icons.Default.Close, contentDescription = "Close", modifier = Modifier.size(20.dp))
                     }
                 }
 
