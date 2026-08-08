@@ -22,6 +22,7 @@ class MainActivity : ComponentActivity() {
     super.onCreate(savedInstanceState)
     enableEdgeToEdge()
     try {
+      com.example.engine.EnvironmentSimulator.syncWithRealDevice(this)
       com.example.service.AutomationForegroundService.startService(this)
     } catch (e: Exception) {
       e.printStackTrace()
