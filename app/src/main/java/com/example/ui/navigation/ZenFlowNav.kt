@@ -116,7 +116,16 @@ fun ZenFlowNav(
         }
     }
 
-    if (isEditingFlow) {
+    if (!hasCompletedOnboarding) {
+        com.example.ui.components.OnboardingScreen(
+            onDismiss = {
+                viewModel.setOnboardingCompleted(true)
+            },
+            onComplete = {
+                viewModel.setOnboardingCompleted(true)
+            }
+        )
+    } else if (isEditingFlow) {
         ZeroLogicEditorScreen(
             editingFlow = editingFlowTarget,
             environment = environment,
@@ -388,19 +397,6 @@ fun ZenFlowNav(
                     actionConfig = actionCfg
                 )
                 viewModel.showToast("✓ Saved AI Routine '${generatedFlow.title}'")
-            }
-        )
-    }
-
-    if (isOnboardingOpen) {
-        OnboardingDialog(
-            onDismiss = {
-                isOnboardingOpen = false
-                viewModel.setOnboardingCompleted(true)
-            },
-            onComplete = {
-                isOnboardingOpen = false
-                viewModel.setOnboardingCompleted(true)
             }
         )
     }
