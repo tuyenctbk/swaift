@@ -12,6 +12,7 @@ import androidx.core.app.NotificationCompat
 import com.example.MainActivity
 import com.example.data.FlowRepository
 import com.example.data.HistoryLogEntity
+import com.example.data.TriggerType
 import com.example.data.ZenFlowDatabase
 import com.example.engine.EnvironmentSimulator
 import com.example.engine.FlowExecutor

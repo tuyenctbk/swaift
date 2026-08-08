@@ -93,9 +93,9 @@ class AiRoutineViewModel(application: Application) : AndroidViewModel(applicatio
     private fun getApiKey(): String {
         val custom = getCustomApiKey()
         if (custom.isNotBlank()) return custom
-        // Use BuildConfig field if available (set via secrets plugin / .env)
         return try {
-            BuildConfig.GEMINI_API_KEY.takeIf { it.isNotBlank() } ?: ""
+            val field = com.example.BuildConfig::class.java.getField("GEMINI_API_KEY")
+            (field.get(null) as? String)?.takeIf { it.isNotBlank() } ?: ""
         } catch (e: Throwable) {
             ""
         }
