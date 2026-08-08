@@ -52,7 +52,7 @@
     <string name="dashboard_execution_trend">Execution Trend (30 Days)</string>
     <string name="dashboard_recent_activity">Recent Activity</string>
     <string name="dashboard_no_activity">No activity yet. Run a routine to see history here!</string>
-    <string name="dashboard_privacy_badge">100% Local Processing & Privacy</string>
+    <string name="dashboard_privacy_badge">100% Local Processing &amp; Privacy</string>
     <string name="dashboard_privacy_subtitle">No telemetry, no tracking, completely free forever</string>
     <string name="my_flows_title">My Routines</string>
     <string name="my_flows_empty_title">No Routines Yet</string>
@@ -79,7 +79,7 @@
     <string name="history_status_success">SUCCESS</string>
     <string name="history_status_failed">FAILED</string>
     <string name="history_status_manual">MANUAL</string>
-    <string name="settings_privacy_badge">100% Local Processing & Privacy</string>
+    <string name="settings_privacy_badge">100% Local Processing &amp; Privacy</string>
     <string name="settings_privacy_subtitle">No telemetry, no tracking, completely free forever</string>
     <string name="settings_appearance">Appearance</string>
     <string name="settings_theme_system">System Default</string>
@@ -99,13 +99,13 @@
     <string name="settings_byok_hint">Enter your Google AI Gemini API key</string>
     <string name="settings_byok_save">Save Key</string>
     <string name="settings_byok_clear">Clear</string>
-    <string name="settings_backup_title">Data Backup & Restore</string>
+    <string name="settings_backup_title">Data Backup &amp; Restore</string>
     <string name="settings_export_backup">Export Backup</string>
     <string name="settings_import_backup">Import Backup</string>
     <string name="settings_version">Version</string>
     <string name="onboarding_welcome_title">Welcome to SwAIft</string>
     <string name="onboarding_welcome_desc">Your intelligent, privacy-first Android automation companion. Streamline daily tasks based on location, Wi-Fi, battery, and AI context.</string>
-    <string name="onboarding_privacy_note">100% On-Device & Private. Zero cloud telemetry.</string>
+    <string name="onboarding_privacy_note">100% On-Device &amp; Private. Zero cloud telemetry.</string>
     <string name="onboarding_how_title">How Automations Work</string>
     <string name="onboarding_how_desc">SwAIft triggers rules automatically when environment conditions match:</string>
     <string name="onboarding_perm_title">Permissions Setup</string>
@@ -116,7 +116,7 @@
     <string name="onboarding_btn_continue">Continue</string>
     <string name="onboarding_btn_back">Back</string>
     <string name="onboarding_btn_skip">Skip</string>
-    <string name="guide_title">SwAIft Guidelines & How-To</string>
+    <string name="guide_title">SwAIft Guidelines &amp; How-To</string>
     <string name="guide_subtitle">Master your automated smartphone workflows</string>
     <string name="guide_btn_got_it">Got It!</string>
     <string name="content_desc_close">Close</string>

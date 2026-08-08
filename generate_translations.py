@@ -313,7 +313,7 @@ for lang in langs:
             text = val_dict.get(lang, val_dict.get("default", default_text))
         else:
             text = default_text
-        text_escaped = text.replace("'", "\\'")
+        text_escaped = text.replace("&", "&amp;").replace("'", "\\'")
         lines.append(f'    <string name="{key}">{text_escaped}</string>\n')
     lines.append("</resources>\n")
 
